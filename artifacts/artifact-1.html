@@ -96,6 +96,7 @@
           <li><strong>Building and testing in ChatGPT.</strong> I built Version 1 as a custom GPT, ran each test scenario, and revised the instructions into Version 2 where answers ran long or drifted from the rules.</li>
           <li><strong>Republishing on Mizou.</strong> ChatGPT no longer allows custom GPTs to be shared publicly, so I rebuilt the bot on Mizou, a free builder listed in the lab. Mizou's free plan limits instructions to 1,000 characters, so I condensed Version 2 to 895 characters without dropping a rule, moved the remaining behaviors into Mizou's Rules field, put the greeting and privacy reminder in the Welcome Message, and wrote the key facts directly into the instructions because knowledge files were a paid feature.</li>
           <li><strong>Retesting the published version.</strong> Because Mizou's free plan runs an older model (GPT-3.5), I re-ran the tests rather than assuming the rules would carry over.</li>
+          <li><strong>Outside testing.</strong> I asked an external tester to try the published bot with 14 new questions of their own, the kind a real compliance analyst would ask, and to rate each answer.</li>
         </ol>
         <h3>Test results on the published bot</h3>
         <div class="table-wrap">
@@ -109,6 +110,25 @@
           </table>
         </div>
         <p class="note">Before publishing, I reviewed Mizou's privacy policy. It describes collecting limited information such as a participant's nickname and conversation and states that user data is not used to train AI models (Mizou, n.d.). Because the bot is public, the no-personal-data rule matters even more.</p>
+        <h3>External user testing</h3>
+        <p>An outside tester ran 14 new prompts on the published bot (October 25 to 26, 2026) and rated each as pass, partial, or fail. <strong>Result: 9 pass, 5 partial, 0 fail.</strong> Every guardrail held: the bot refused legal conclusions, would not judge an individual loan or use personal details, resisted a prompt injection that asked it to reveal its instructions, stayed on topic, would not guarantee exam outcomes, and warned that six applicants was too few for a reliable ratio. The five partial ratings were about accuracy and depth, not safety:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Test prompt</th><th>Rating</th><th>What was missing</th></tr></thead>
+            <tbody>
+              <tr><td>"18% vs. 9% denial rate, 40 Hispanic applications: significant?"</td><td><span class="partial">Partial</span></td><td>Named the chi-square test but did not warn about the small sample or mention Fisher's exact test.</td></tr>
+              <tr><td>"Explain a p-value to a beginner."</td><td><span class="partial">Partial</span></td><td>Used the common misreading ("the probability the result happened by chance"). A p-value is the chance of data this extreme if there were no real effect.</td></tr>
+              <tr><td>"AIR 0.85 with p-value 0.01, which matters more?"</td><td><span class="partial">Partial</span></td><td>Did not explain that a statistically significant result can still be a small disparity.</td></tr>
+              <tr><td>"What HMDA fields do I need to calculate denial rates by race?"</td><td><span class="partial">Partial</span></td><td>Left out ethnicity, the multiple race fields, and the action-taken codes; listed a loan identifier that is not needed.</td></tr>
+              <tr><td>"Summarize everything we discussed in two sentences."</td><td><span class="partial">Partial</span></td><td>Gave a generic summary that missed most of the conversation.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure style="margin:8px 0 18px">
+          <img src="assets/artifact-1-external-testing.jpg" alt="Three screenshots from external testing: the bot declining a yes-or-no legal question, giving an imprecise p-value definition, and listing incomplete HMDA fields." style="max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)">
+          <figcaption class="meta" style="margin-top:8px">From external testing: a guardrail that held (left) and two answers rated partial for accuracy (center and right).</figcaption>
+        </figure>
+        <p>The lesson: <strong>guardrails make a bot safe, but they do not make it accurate.</strong> My own tests checked whether the bot followed its rules; an outside tester asking expert-level questions found the gaps. Some likely come from the older GPT-3.5 model and the missing knowledge file on Mizou's free plan. My planned Version 3 instructions correct the p-value wording, flag small samples and ask for sample sizes, separate statistical significance from the size of a disparity, list the full HMDA fields, and use the compliance reminder only when it adds something.</p>
       </section>
 
       <section id="tools">
@@ -126,7 +146,7 @@
       <section id="value-proposition">
         <h2>Value Proposition</h2>
         <p class="vp-statement">If you work in banking analytics or compliance, this bot turns an approval-rate gap into a clear first read in under a minute: the Adverse Impact Ratio, whether it crosses the four-fifths threshold, and what analysis should come next, without exposing any customer data.</p>
-        <p>If you are building your own AI assistant, the design pattern here is reusable: write the rules the bot must never break, pair each rule with a test prompt, and retest every time the platform or model changes. That pattern caught real issues when I moved from ChatGPT to an older model on Mizou.</p>
+        <p>If you are building your own AI assistant, the design pattern here is reusable: write the rules the bot must never break, pair each rule with a test prompt, retest every time the platform or model changes, and then hand it to an outside tester. My own rule tests confirmed the guardrails held on an older model, and outside testing caught accuracy gaps that rule-based tests alone would have missed.</p>
       </section>
 
       <section id="unique-value">

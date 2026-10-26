@@ -155,6 +155,7 @@ footer { padding: 34px 0 48px; color: var(--muted); font-size: 14px; border-top:
 .artifact-body th, .artifact-body td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
 .artifact-body th { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
 .pass { color: var(--accent); font-weight: 600; }
+.partial { color: var(--gold); font-weight: 600; }
 .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
 .steps li { counter-increment: step; position: relative; padding: 0 0 14px 40px; }
 .steps li::before { content: counter(step); position: absolute; left: 0; top: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); color: var(--gold); font-weight: 600; font-size: 13px; display: grid; place-items: center; }
