@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Turing to Transformers | AI Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c2430;--muted:#5d6675;--line:#d9d6cd;
+--found:#2f5d8a;--winter:#6b7a90;--revival:#b07d2b;--deep:#1f8a70;--fin:#a23b5a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:48px 24px 40px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;color:var(--revival);margin:0 0 10px}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(32px,5vw,50px);line-height:1.08;margin:0 0 10px}
+.lede{color:var(--muted);max-width:720px;margin:0 0 6px;font-size:17px}
+.by{color:var(--muted);font-size:14px;margin:0 0 26px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin:0 0 30px;font-size:14px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.era{margin:34px 0 14px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.era h2{font-family:Fraunces,Georgia,serif;font-size:24px;margin:0}
+.era p{margin:0;color:var(--muted);font-size:14px}
+.tl{position:relative;margin-left:96px;border-left:3px solid var(--line);padding-left:26px}
+.ev{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+.ev::before{content:"";position:absolute;left:-35px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--c);border:3px solid var(--bg)}
+.yr{position:absolute;left:-122px;top:13px;width:72px;text-align:right;font-weight:600;font-size:15px;color:var(--c)}
+.ev h3{margin:0 0 4px;font-size:16.5px}
+.ev p{margin:0;color:#384252;font-size:15px}
+.who{margin-top:6px;font-size:13px;color:var(--muted)}
+.winter{background:repeating-linear-gradient(135deg,#eef1f5,#eef1f5 10px,#e6eaf0 10px,#e6eaf0 20px)}
+.callout{margin:34px 0 0;background:#14303a;color:#e9f1f2;border-radius:14px;padding:22px 24px}
+.callout h2{font-family:Fraunces,Georgia,serif;margin:0 0 8px;font-size:22px}
+.callout p{margin:0 0 8px;color:#cfe0e2}
+.big{font-family:Fraunces,Georgia,serif;font-size:40px;color:#7fd3c4;line-height:1;margin:6px 0 4px}
+.src{margin-top:34px;font-size:13px;color:var(--muted)}
+.src h2{font-size:15px;color:var(--ink);margin:0 0 6px}
+.src p{margin:0 0 6px;padding-left:28px;text-indent:-28px}
+@media (max-width:640px){.tl{margin-left:6px;padding-left:20px}.yr{position:static;display:block;text-align:left;width:auto;margin-bottom:2px}.ev::before{left:-29px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="eyebrow">AIML 500 · 1.3 AI and ML Timelines</p>
+<h1>From Turing to Transformers: 75 Years of Artificial Intelligence</h1>
+<p class="lede">AI did not rise in a straight line. It moved through bursts of optimism, two long "winters," and a modern boom powered as much by GPUs, data, and cloud computing as by new algorithms.</p>
+<p class="by">Created by Aishwarya Shah · Indiana Wesleyan University · October 2026</p>
+<div class="legend">
+<span><i class="dot" style="background:var(--found)"></i>Foundations</span>
+<span><i class="dot" style="background:var(--winter)"></i>AI winters</span>
+<span><i class="dot" style="background:var(--revival)"></i>Revival and milestones</span>
+<span><i class="dot" style="background:var(--deep)"></i>Deep learning and cloud era</span>
+<span><i class="dot" style="background:var(--fin)"></i>AI in banking (my field)</span>
+</div>
+
+<div class="era"><h2>1950 to 1973: The Foundations</h2><p>Symbolic AI and early optimism</p></div>
+<div class="tl">
+<div class="ev" style="--c:var(--found)"><span class="yr">1950</span><h3>The Turing Test</h3><p>Alan Turing's paper "Computing Machinery and Intelligence" asks whether machines can think and proposes the imitation game as a test.</p><div class="who">Alan Turing</div></div>
+<div class="ev" style="--c:var(--found)"><span class="yr">1956</span><h3>AI is born at Dartmouth</h3><p>A summer workshop at Dartmouth College launches AI as a research field, using the term "artificial intelligence" coined in its 1955 proposal.</p><div class="who">John McCarthy, Marvin Minsky, Claude Shannon, Nathaniel Rochester</div></div>
+<div class="ev" style="--c:var(--found)"><span class="yr">1958</span><h3>The Perceptron</h3><p>The first trainable artificial neural network learns to classify simple patterns, the seed of today's deep learning.</p><div class="who">Frank Rosenblatt, Cornell</div></div>
+<div class="ev" style="--c:var(--found)"><span class="yr">1966</span><h3>ELIZA, the first chatbot</h3><p>A simple pattern-matching program imitates a therapist and surprises users who believe it understands them.</p><div class="who">Joseph Weizenbaum, MIT</div></div>
+<div class="ev" style="--c:var(--found)"><span class="yr">1969</span><h3>Limits of the Perceptron</h3><p>The book "Perceptrons" shows that single-layer networks cannot solve some basic problems, cooling interest in neural networks for over a decade.</p><div class="who">Marvin Minsky and Seymour Papert</div></div>
+</div>
+
+<div class="era"><h2>1974 to 1980: The First AI Winter</h2><p>Promises outran results</p></div>
+<div class="tl">
+<div class="ev winter" style="--c:var(--winter)"><span class="yr">1973</span><h3>The Lighthill Report</h3><p>A UK government review concludes AI has failed to meet its grand promises. Funding is cut in the UK, and U.S. agencies such as DARPA also scale back.</p></div>
+<div class="ev winter" style="--c:var(--winter)"><span class="yr">1974–80</span><h3>Winter sets in</h3><p><strong>Causes:</strong> limited computing power, little data, and systems that worked only on toy problems. <strong>Impact:</strong> research funding and public interest dropped sharply for years.</p></div>
+</div>
+
+<div class="era"><h2>1980 to 1987: Expert Systems Boom</h2><p>AI goes commercial</p></div>
+<div class="tl">
+<div class="ev" style="--c:var(--revival)"><span class="yr">1980</span><h3>Expert systems in business</h3><p>Rule-based systems like XCON at Digital Equipment Corporation capture human expertise as if-then rules and save companies millions.</p><div class="who">Digital Equipment Corporation, Carnegie Mellon</div></div>
+<div class="ev" style="--c:var(--revival)"><span class="yr">1986</span><h3>Backpropagation popularized</h3><p>A landmark paper shows how multi-layer neural networks can learn from their errors, reviving neural network research.</p><div class="who">David Rumelhart, Geoffrey Hinton, Ronald Williams</div></div>
+</div>
+
+<div class="era"><h2>1987 to 1993: The Second AI Winter</h2><p>The expert systems bubble bursts</p></div>
+<div class="tl">
+<div class="ev winter" style="--c:var(--winter)"><span class="yr">1987–93</span><h3>Second winter</h3><p><strong>Causes:</strong> the market for specialized Lisp machines collapsed, and expert systems proved expensive to maintain and brittle when rules did not fit reality. <strong>Impact:</strong> many AI companies failed, and researchers avoided the label "AI," calling their work machine learning or data mining instead.</p></div>
+</div>
+
+<div class="era"><h2>1989 to 2011: Quiet Progress</h2><p>Machine learning matures</p></div>
+<div class="tl">
+<div class="ev" style="--c:var(--revival)"><span class="yr">1989</span><h3>Neural networks read handwriting</h3><p>Convolutional neural networks learn to recognize handwritten digits, later used to read checks at banks.</p><div class="who">Yann LeCun, Bell Labs</div></div>
+<div class="ev" style="--c:var(--fin)"><span class="yr">Early 1990s</span><h3>AI fights card fraud</h3><p>Neural network systems such as Falcon begin scoring credit card transactions for fraud in real time, one of the first large-scale commercial uses of machine learning in banking.</p><div class="who">HNC Software (later part of FICO)</div></div>
+<div class="ev" style="--c:var(--revival)"><span class="yr">1997</span><h3>Deep Blue beats Kasparov</h3><p>IBM's chess computer defeats the reigning world champion, a milestone for search and computing power rather than learning.</p><div class="who">IBM</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2006</span><h3>Deep learning and the cloud arrive</h3><p>Hinton's work on deep belief networks helps relaunch "deep learning." The same year, Amazon Web Services launches cloud storage and computing, making massive computing power rentable.</p><div class="who">Geoffrey Hinton · Amazon Web Services</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2009</span><h3>ImageNet</h3><p>A dataset of millions of labeled images gives researchers the data that deep networks need.</p><div class="who">Fei-Fei Li, Princeton and Stanford</div></div>
+<div class="ev" style="--c:var(--revival)"><span class="yr">2011</span><h3>Watson and Siri</h3><p>IBM Watson wins Jeopardy!, and Apple launches Siri, bringing AI into everyday life.</p><div class="who">IBM · Apple</div></div>
+</div>
+
+<div class="era"><h2>2012 to Today: The Deep Learning and Cloud Era</h2><p>Hardware, data, and algorithms finally meet</p></div>
+<div class="tl">
+<div class="ev" style="--c:var(--deep)"><span class="yr">2012</span><h3>The AlexNet moment</h3><p>A deep neural network trained on Nvidia GPUs crushes the ImageNet competition. Hardware has finally caught up with decades of theory.</p><div class="who">Alex Krizhevsky, Ilya Sutskever, Geoffrey Hinton · Nvidia</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2014</span><h3>Generative networks (GANs)</h3><p>Two networks compete to create realistic images, an early step toward generative AI.</p><div class="who">Ian Goodfellow</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2016</span><h3>AlphaGo beats Lee Sedol</h3><p>DeepMind's system wins at Go, a game long thought too intuitive for computers.</p><div class="who">Google DeepMind, Demis Hassabis</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2017</span><h3>The Transformer</h3><p>The paper "Attention Is All You Need" introduces the architecture behind nearly every modern language model.</p><div class="who">Google researchers</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2020</span><h3>GPT-3 and AlphaFold 2</h3><p>A 175-billion-parameter language model writes fluent text, and AlphaFold 2 predicts protein structures, solving a 50-year biology challenge.</p><div class="who">OpenAI · Google DeepMind</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2022</span><h3>ChatGPT goes public</h3><p>Released in November 2022, ChatGPT becomes one of the fastest-growing consumer apps in history and brings generative AI to the mainstream.</p><div class="who">OpenAI, backed by Microsoft cloud computing</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2023</span><h3>The model race</h3><p>GPT-4, Anthropic's Claude, and Google's Gemini compete, and companies race to add AI to products.</p><div class="who">OpenAI · Anthropic · Google</div></div>
+<div class="ev" style="--c:var(--deep)"><span class="yr">2024</span><h3>Nobel Prizes and regulation</h3><p>Hinton and John Hopfield win the Nobel Prize in Physics for neural network foundations, Hassabis and John Jumper share the Chemistry prize for AlphaFold, and the EU adopts the AI Act, the first major AI law.</p><div class="who">Nobel Committee · European Union</div></div>
+<div class="ev" style="--c:var(--fin)"><span class="yr">Today</span><h3>AI across finance</h3><p>Banks use machine learning for fraud detection, credit risk, and customer targeting, while regulators focus on explainability and fair lending, a reminder that powerful models must also be trustworthy.</p><div class="who">Industry and regulators</div></div>
+</div>
+
+<div class="callout">
+<h2>Why the boom happened now</h2>
+<p>Training compute for notable AI systems doubled roughly every 20 months before 2010. Since the deep learning era began, it has doubled about every 6 months.</p>
+<div class="big">~6 months</div>
+<p>That surge, made possible by GPUs and cloud computing, explains why ideas from the 1950s and 1980s only took off after 2012 (Roser, 2022; Sevilla et al., 2022).</p>
+</div>
+
+<div class="src">
+<h2>Sources</h2>
+<p>IEEE Computer Society. (n.d.). The evolution of AI: From foundations to future prospects. https://www.computer.org/publications/tech-news/research/evolution-of-ai</p>
+<p>Putchuon. (2024, May 30). The entire history of artificial intelligence (Last 100 years) [Video]. YouTube. https://www.youtube.com/watch?v=mSd9nmPM7Vg</p>
+<p>Roser, M. (2022). The brief history of artificial intelligence. Our World in Data. https://ourworldindata.org/brief-history-of-ai</p>
+<p>Sevilla, J., Heim, L., Ho, A., Besiroglu, T., Hobbhahn, M., &amp; Villalobos, P. (2022). Compute trends across three eras of machine learning. arXiv. https://arxiv.org/abs/2202.05924</p>
+<p>Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59(236), 433–460.</p>
+<p><em>Generative AI use: Claude (Anthropic) assisted with research and drafting; milestones were checked against the sources above.</em></p>
+</div>
+</div>
+</body>
+</html>
