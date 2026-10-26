@@ -120,7 +120,7 @@ footer { padding: 34px 0 48px; color: var(--muted); font-size: 14px; border-top:
 .artifact-head { padding: 64px 0 28px; }
 .artifact-head h1 { font-family: "Fraunces", Georgia, serif; font-size: clamp(30px, 5vw, 46px); line-height: 1.12; margin: 0 0 12px; }
 .meta { color: var(--muted); font-size: 15px; }
-.artifact-body { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding-bottom: 60px; }
+.artifact-body { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-bottom: 60px; }
 .toc { position: sticky; top: 84px; align-self: start; font-size: 14.5px; }
 .toc a { display: block; color: var(--muted); text-decoration: none; padding: 4px 0; }
 .toc a:hover { color: var(--accent); }
@@ -143,8 +143,26 @@ footer { padding: 34px 0 48px; color: var(--muted); font-size: 14px; border-top:
   .hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .headshot { width: 180px; height: 180px; order: -1; }
   .bio-grid { grid-template-columns: 1fr; }
-  .artifact-body { grid-template-columns: 1fr; }
+  .artifact-body { grid-template-columns: minmax(0, 1fr); }
   .toc { position: static; display: flex; flex-wrap: wrap; gap: 4px 16px; }
   .nav-links { gap: 14px; }
   .nav-links a.hide-sm { display: none; }
 }
+
+/* Artifact page tables, steps, and notes */
+.table-wrap { overflow-x: auto; margin: 8px 0 18px; }
+.artifact-body table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.artifact-body th, .artifact-body td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.artifact-body th { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
+.pass { color: var(--accent); font-weight: 600; }
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.steps li { counter-increment: step; position: relative; padding: 0 0 14px 40px; }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); color: var(--gold); font-weight: 600; font-size: 13px; display: grid; place-items: center; }
+.note { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 8px; padding: 14px 16px; font-size: 15px; }
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0 4px; font-size: 14px; }
+.flow span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+.flow i { color: var(--muted); font-style: normal; }
+.artifact-body .deliverable img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+.artifact-body > * { min-width: 0; }
+@media (max-width: 560px) { .artifact-body table { font-size: 14px; } .artifact-body th, .artifact-body td { padding: 8px 6px; } }
+#references p { overflow-wrap: anywhere; padding-left: 2em; text-indent: -2em; }
