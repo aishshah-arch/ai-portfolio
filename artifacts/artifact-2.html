@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artifact 2 | Aishwarya Shah</title>
+  <title>From Turing to Transformers | Aishwarya Shah</title>
+  <meta name="description" content="An interactive, research-based timeline of 75 years of artificial intelligence, with a banking lens, created for AIML 500.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,9 +25,8 @@
 <main class="wrap">
   <div class="artifact-head">
     <p class="eyebrow">Artifact 2</p>
-    <!-- TITLE: replace with the artifact title -->
-    <h1>Artifact 2 Title</h1>
-    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; [Month Year]</p>
+    <h1>From Turing to Transformers: An Interactive History of Artificial Intelligence</h1>
+    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; October to November 2026</p>
     <a class="back" href="../index.html#artifacts">&larr; All artifacts</a>
   </div>
   <div class="artifact-body">
@@ -46,47 +46,98 @@
       <section id="visual">
         <h2>Artifact Visual</h2>
         <div class="deliverable">
-          <div class="placeholder"><strong>Add the deliverable here.</strong> The actual work comes first: a screenshot, embed, live link, or downloadable file. A description alone does not count.</div>
-          <!-- Example image: <img src="assets/artifact-2-screenshot.png" alt="Describe the screenshot"> -->
-          <!-- Example download: <a class="btn primary" href="assets/artifact-2.pdf" download>Download (PDF)</a> -->
-          <!-- Example code link: <a class="btn ghost" href="https://github.com/aishshah-arch/REPO" target="_blank" rel="noopener">View code on GitHub</a> -->
+          <img src="assets/artifact-2-timeline-overview.jpg" alt="One-screen overview of the AI timeline: 13 key milestones from the 1950 Turing Test to the 2024 Nobel Prizes, color-coded by era, including two AI winters and an AI in banking milestone">
+          <p class="meta" style="margin-top:8px">The one-screen overview: 13 key milestones across 75 years, color-coded by era. The full interactive version has 25 milestones with descriptions.</p>
+          <div class="btn-row" style="margin-top:16px">
+            <a class="btn primary" href="ai-timeline.html">Explore the full interactive timeline</a>
+          </div>
+          <div class="flow" aria-label="Timeline structure">
+            <span>Foundations (1950 to 1973)</span><i>&rarr;</i>
+            <span>First AI winter</span><i>&rarr;</i>
+            <span>Expert systems boom</span><i>&rarr;</i>
+            <span>Second AI winter</span><i>&rarr;</i>
+            <span>Quiet progress</span><i>&rarr;</i>
+            <span>Deep learning and cloud era</span>
+          </div>
         </div>
       </section>
+
       <section id="introduction">
         <h2>Introduction</h2>
-        <div class="placeholder"><strong>To be added.</strong> Two or three sentences telling the reader what this artifact is and why it matters to them.</div>
+        <p>This artifact is a visual history of artificial intelligence, from Alan Turing's 1950 question "Can machines think?" to the 2024 Nobel Prizes awarded for AI research. I built it around one idea: AI did not grow in a straight line. Its history includes bursts of optimism, two long "AI winters" when funding dried up, and a modern boom powered as much by GPUs, data, and cloud computing as by new algorithms.</p>
+        <p>I chose it as my second artifact because it shows a different skill from my first. Where Artifact 1 shows how I build and test an AI tool, this one shows how I research a complex subject, verify facts against sources, and turn them into a clear visual story for people who do not have time to read the history themselves.</p>
       </section>
+
       <section id="description">
         <h2>Description</h2>
-        <div class="placeholder"><strong>To be added.</strong> What the artifact is in more detail: its format, contents, and key features.</div>
+        <p>The artifact has two parts, designed for two ways of reading:</p>
+        <ul>
+          <li><strong>A one-screen overview</strong> with 13 key milestones on a single color-coded line, for readers who want the big picture in under a minute.</li>
+          <li><strong>A full interactive timeline</strong> with 25 milestones, each with a plain-language description and the key people and companies involved. It works on desktop and mobile.</li>
+        </ul>
+        <p>Both versions are organized into six eras and use five colors: foundations, AI winters, revival, the deep learning and cloud era, and AI in banking. The two AI winters (1974 to 1980 and 1987 to 1993) are shaded and explain both the causes and the impact of each downturn. The full version also includes a callout on the growth of training compute and a section called "AI in Banking: Then and Now" that compares rule-based and AI-based fraud detection.</p>
       </section>
+
       <section id="objective">
         <h2>Objective</h2>
-        <div class="placeholder"><strong>To be added.</strong> Why you created it. What business problem or audience need does it solve?</div>
+        <p>The objective was to explain how AI evolved, why progress stalled twice, and what finally made the modern boom possible, in a format a non-technical reader could understand quickly. A second objective was to show that today's AI rests on decades-old ideas. Neural networks date back to the 1958 Perceptron, but they only became practical once computing power and data caught up. For professionals in fields like banking, the goal was also to show that AI was solving real business problems long before generative AI made headlines.</p>
       </section>
+
       <section id="process">
         <h2>Process</h2>
-        <div class="placeholder"><strong>To be added.</strong> Your step-by-step approach: research, design choices, iterations, and testing.</div>
+        <ol class="steps">
+          <li><strong>Research.</strong> I studied the three course resources: a documentary on the history of AI, an IEEE Computer Society article on the evolution from symbolic AI to neural networks (Bhat, 2025), and Our World in Data's history of AI (Roser, 2022). I checked dates and claims against these sources and against primary research, such as the study on compute trends by Sevilla et al. (2022).</li>
+          <li><strong>Selecting milestones.</strong> I chose events that explain turning points rather than listing every achievement, and grouped them into six eras so the boom-and-bust pattern would be visible at a glance.</li>
+          <li><strong>Adding my own lens.</strong> I added a separate color for AI in banking, my field, including early neural network fraud detection in the 1990s.</li>
+          <li><strong>Designing for two audiences.</strong> My first version was a single long page. When I saw it as an image, it was too long and crowded to read in a discussion post, so I created a one-screen overview for quick reading and kept the detailed page for deeper exploration.</li>
+          <li><strong>Revising from feedback.</strong> After sharing the timeline with my class, I added the "AI in Banking: Then and Now" section in response to classmates' suggestions and corrected a citation after a classmate's post showed the IEEE article's author and date.</li>
+        </ol>
+        <h3>Feedback that shaped the final version</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Source</th><th>Feedback</th><th>What I changed</th></tr></thead>
+            <tbody>
+              <tr><td>Instructor</td><td>The timeline captures the major milestones and highlights how computing power, data availability, and research innovation drove AI's growth.</td><td>Kept the compute and data story as the central thread of the artifact.</td></tr>
+              <tr><td>Classmate</td><td>Show both the benefit and the cost of AI in banking, such as fraud prevented versus a legitimate purchase blocked.</td><td>Added a benefit-and-cost comparison to the new banking section.</td></tr>
+              <tr><td>Classmate</td><td>Compare traditional fraud detection systems with modern AI approaches.</td><td>Added a side-by-side table of rule-based and AI-based fraud detection.</td></tr>
+              <tr><td>Classmate</td><td>How do banks balance fraud detection with incorrect decisions, privacy, and bias?</td><td>Explained how banks match the response to the risk and monitor false alarms across customer groups.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
+
       <section id="tools">
         <h2>Tools and Technologies Used</h2>
-        <div class="placeholder"><strong>To be added.</strong> Be specific: Python version, libraries (for example scikit-learn 1.5), platforms, datasets, and any generative AI tools used (for example ChatGPT, Claude).</div>
+        <ul>
+          <li><strong>HTML and CSS</strong>: the interactive timeline is a responsive web page, color-coded by era and readable on mobile.</li>
+          <li><strong>GitHub Pages</strong>: hosts the timeline and this portfolio.</li>
+          <li><strong>Course resources and primary sources</strong>: the IEEE Computer Society, Our World in Data, and published research used to verify each milestone.</li>
+          <li><strong>Claude</strong> (Anthropic): used to help research milestones and design the layout. I selected the focus, added the banking lens, verified facts against the sources, and made the revisions based on feedback.</li>
+        </ul>
       </section>
+
       <section id="value-proposition">
         <h2>Value Proposition</h2>
-        <div class="placeholder"><strong>To be added.</strong> What this artifact does for the reader, not what it shows about you. State a concrete, ideally measurable benefit. Example: "This guide helps compliance analysts run a model bias check in under 10 minutes without writing code."</div>
+        <p class="vp-statement">If you need to understand where AI came from and why it is booming now, this timeline gives you 75 years of history in under five minutes, with the two AI winters explained so you can recognize the warning signs of hype today.</p>
+        <p>For leaders evaluating AI investments, the history offers a practical lesson: progress stalled twice when promises outran what the technology and data could deliver. For banking and compliance professionals, the "Then and Now" section shows how fraud detection evolved from fixed rules to learning systems, and the tradeoffs that come with that shift.</p>
       </section>
+
       <section id="unique-value">
         <h2>Unique Value</h2>
-        <div class="placeholder"><strong>To be added.</strong> What makes your version different: your financial services background, explainability focus, or a distinctive approach.</div>
+        <p>Most AI timelines focus on famous research breakthroughs and consumer products like ChatGPT. This one adds a banking thread, drawn from my eight years in data and analytics, including propensity modeling at JPMorgan Chase. It shows that machine learning was quietly protecting bank customers from fraud in the early 1990s, decades before generative AI, and explains the real tradeoff banks manage every day between catching fraud and inconveniencing legitimate customers. That perspective connects AI history to decisions working professionals actually face.</p>
       </section>
+
       <section id="relevance">
         <h2>Relevance</h2>
-        <div class="placeholder"><strong>To be added.</strong> How it connects to real-world AI/ML practice, current industry needs, and where the field is heading.</div>
+        <p>Organizations are investing heavily in AI today, and the AI winters are a reminder of what happens when expectations outrun results. Understanding that history helps leaders set realistic goals for AI projects. The timeline also highlights a trend that still shapes the field: training compute for AI systems has gone from doubling roughly every 20 months to about every 6 months since the deep learning era began (Sevilla et al., 2022). As an aspiring AI engineer, I see this history as practical knowledge. It explains why data and infrastructure matter as much as algorithms, and why responsible use of AI in fields like banking depends on understanding both what the technology can do and where it can fail.</p>
       </section>
+
       <section id="references">
         <h2>References</h2>
-        <div class="placeholder"><strong>To be added.</strong> APA 7 references for any sources, datasets, or tools cited. Write "None" if not applicable.</div>
+        <p>Bhat, A. K. (2025, March 11). <em>The evolution of AI: From foundations to future prospects</em>. IEEE Computer Society. https://www.computer.org/publications/tech-news/research/evolution-of-ai</p>
+        <p>Putchuon. (2024, May 30). <em>The entire history of artificial intelligence (Last 100 years)</em> [Video]. YouTube. https://www.youtube.com/watch?v=mSd9nmPM7Vg</p>
+        <p>Roser, M. (2022). <em>The brief history of artificial intelligence</em>. Our World in Data. https://ourworldindata.org/brief-history-of-ai</p>
+        <p>Sevilla, J., Heim, L., Ho, A., Besiroglu, T., Hobbhahn, M., &amp; Villalobos, P. (2022). <em>Compute trends across three eras of machine learning</em>. arXiv. https://arxiv.org/abs/2202.05924</p>
       </section>
     </div>
   </div>
