@@ -167,3 +167,13 @@ footer { padding: 34px 0 48px; color: var(--muted); font-size: 14px; border-top:
 .artifact-body > * { min-width: 0; }
 @media (max-width: 560px) { .artifact-body table { font-size: 14px; } .artifact-body th, .artifact-body td { padding: 8px 6px; } }
 #references p { overflow-wrap: anywhere; padding-left: 2em; text-indent: -2em; }
+
+/* Featured live bot */
+.feature { display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--gold);
+  border-radius: var(--radius); padding: 24px; margin: 0 0 26px; }
+.feature img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+.feature h3 { margin: 0 0 8px; font-size: 22px; }
+.feature p { margin: 0 0 16px; color: var(--muted); }
+.feature .eyebrow { margin: 0 0 6px; }
+@media (max-width: 760px) { .feature { grid-template-columns: 1fr; } }
