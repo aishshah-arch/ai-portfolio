@@ -30,6 +30,18 @@ h1{font-family:Fraunces,Georgia,serif;font-size:clamp(32px,5vw,50px);line-height
 .ev p{margin:0;color:#384252;font-size:15px}
 .who{margin-top:6px;font-size:13px;color:var(--muted)}
 .winter{background:repeating-linear-gradient(135deg,#eef1f5,#eef1f5 10px,#e6eaf0 10px,#e6eaf0 20px)}
+.bank{margin:34px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.bank h2{font-family:Fraunces,Georgia,serif;margin:0 0 6px;font-size:24px;color:var(--fin)}
+.bank>p{margin:0 0 14px;color:#384252}
+.cmp{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.cmp th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.cmp td:first-child{font-weight:600;width:22%}
+.trade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.trade div{border-radius:10px;padding:14px 16px;font-size:15px}
+.trade b{display:block;margin-bottom:4px}
+.rev{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic}
+@media (max-width:640px){.trade{grid-template-columns:1fr}.cmp{font-size:14px}}
 .callout{margin:34px 0 0;background:#14303a;color:#e9f1f2;border-radius:14px;padding:22px 24px}
 .callout h2{font-family:Fraunces,Georgia,serif;margin:0 0 8px;font-size:22px}
 .callout p{margin:0 0 8px;color:#cfe0e2}
@@ -101,6 +113,24 @@ h1{font-family:Fraunces,Georgia,serif;font-size:clamp(32px,5vw,50px);line-height
 <div class="ev" style="--c:var(--deep)"><span class="yr">2023</span><h3>The model race</h3><p>GPT-4, Anthropic's Claude, and Google's Gemini compete, and companies race to add AI to products.</p><div class="who">OpenAI · Anthropic · Google</div></div>
 <div class="ev" style="--c:var(--deep)"><span class="yr">2024</span><h3>Nobel Prizes and regulation</h3><p>Hinton and John Hopfield win the Nobel Prize in Physics for neural network foundations, Hassabis and John Jumper share the Chemistry prize for AlphaFold, and the EU adopts the AI Act, the first major AI law.</p><div class="who">Nobel Committee · European Union</div></div>
 <div class="ev" style="--c:var(--fin)"><span class="yr">Today</span><h3>AI across finance</h3><p>Banks use machine learning for fraud detection, credit risk, and customer targeting, while regulators focus on explainability and fair lending, a reminder that powerful models must also be trustworthy.</p><div class="who">Industry and regulators</div></div>
+</div>
+
+<div class="bank">
+<h2>AI in Banking: Then and Now</h2>
+<p>Fraud detection is one of the oldest business uses of machine learning, and it shows how AI has changed in practice.</p>
+<div style="overflow-x:auto"><table class="cmp">
+<thead><tr><th></th><th>Rule-based systems (before the 1990s)</th><th>AI and machine learning (1990s to today)</th></tr></thead>
+<tbody>
+<tr><td>How it works</td><td>Analysts write fixed rules, such as "flag any purchase over a set amount" or "flag purchases from another country."</td><td>Models learn each customer's normal behavior from history and score every transaction on many signals at once, such as amount, location, timing, and merchant.</td></tr>
+<tr><td>Strengths</td><td>Simple, transparent, and easy to explain to customers and regulators.</td><td>Catches subtle and new fraud patterns, and adapts as behavior changes when models are retrained.</td></tr>
+<tr><td>Weaknesses</td><td>Misses fraud that does not match a rule and flags many legitimate purchases. Fraudsters learn the rules and work around them.</td><td>Harder to explain, needs large amounts of data and ongoing monitoring, and can inherit bias from historical data.</td></tr>
+</tbody></table></div>
+<div class="trade">
+<div style="background:#e7f4ef"><b style="color:var(--deep)">The benefit</b>A flagged transaction can stop a stolen card before a customer loses money.</div>
+<div style="background:#f6e8ed"><b style="color:var(--fin)">The cost</b>A wrong flag can decline a legitimate purchase at the worst moment and frustrate a loyal customer.</div>
+</div>
+<p style="margin:14px 0 0;color:#384252">Banks balance the two by matching the response to the risk: a low-risk alert might trigger a quick text asking the customer to confirm the purchase, while high-risk cases go to a person for review. Leaders also track how often legitimate customers are flagged and whether false alarms fall more heavily on some groups, such as customers who send money abroad.</p>
+<p class="rev">Added in November 2026 in response to classmate feedback asking for a concrete banking example and a comparison of traditional and AI-based fraud detection.</p>
 </div>
 
 <div class="callout">
