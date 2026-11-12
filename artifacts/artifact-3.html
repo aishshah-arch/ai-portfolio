@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artifact 3 | Aishwarya Shah</title>
+  <title>How a Neural Network Learns | Aishwarya Shah</title>
+  <meta name="description" content="An interactive, beginner-friendly explainer that teaches how neural networks learn, created for AIML 500.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,9 +25,8 @@
 <main class="wrap">
   <div class="artifact-head">
     <p class="eyebrow">Artifact 3</p>
-    <!-- TITLE: replace with the artifact title -->
-    <h1>Artifact 3 Title</h1>
-    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; [Month Year]</p>
+    <h1>How a Neural Network Learns to Spot a Cat: An Interactive Explainer</h1>
+    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; November 2026</p>
     <a class="back" href="../index.html#artifacts">&larr; All artifacts</a>
   </div>
   <div class="artifact-body">
@@ -46,47 +46,87 @@
       <section id="visual">
         <h2>Artifact Visual</h2>
         <div class="deliverable">
-          <div class="placeholder"><strong>Add the deliverable here.</strong> The actual work comes first: a screenshot, embed, live link, or downloadable file. A description alone does not count.</div>
-          <!-- Example image: <img src="assets/artifact-3-screenshot.png" alt="Describe the screenshot"> -->
-          <!-- Example download: <a class="btn primary" href="assets/artifact-3.pdf" download>Download (PDF)</a> -->
-          <!-- Example code link: <a class="btn ghost" href="https://github.com/aishshah-arch/REPO" target="_blank" rel="noopener">View code on GitHub</a> -->
+          <img src="assets/artifact-3-network.jpg" alt="Step 1 of the explainer: a neural network diagram with input pixels, hidden neurons that detect edges, colors, pointy ears, and whiskers, and an output node that decides Cat at 90 percent">
+          <p class="meta" style="margin-top:8px">Step 1: a photo travels through the input, hidden, and output "rooms" of a network. Visitors press a button to animate it.</p>
+          <img src="assets/artifact-3-training.jpg" alt="Step 3 of the explainer: a tiny network that has trained for four rounds and now correctly classifies seven animals, with bars showing how each clue's weight changed">
+          <p class="meta" style="margin-top:8px">Step 3: visitors train a tiny network themselves and watch it go from 3 of 7 correct guesses to 7 of 7.</p>
+          <div class="btn-row" style="margin-top:16px">
+            <a class="btn primary" href="neural-networks.html">Try the interactive explainer</a>
+          </div>
+          <div class="flow" aria-label="Explainer structure">
+            <span>One big idea</span><i>&rarr;</i>
+            <span>The three rooms</span><i>&rarr;</i>
+            <span>Volume knobs</span><i>&rarr;</i>
+            <span>Learning from mistakes</span><i>&rarr;</i>
+            <span>Why it matters</span><i>&rarr;</i>
+            <span>Quick check</span>
+          </div>
         </div>
       </section>
+
       <section id="introduction">
         <h2>Introduction</h2>
-        <div class="placeholder"><strong>To be added.</strong> Two or three sentences telling the reader what this artifact is and why it matters to them.</div>
+        <p>Albert Einstein is credited with saying that if you can't explain something simply, you don't understand it well enough. This artifact takes that challenge seriously. It explains how a neural network learns using a single analogy that anyone can follow: learning to recognize a cat as a child, not from a rulebook, but from seeing many cats.</p>
+        <p>My first two artifacts show how I build an AI tool and how I research the history of AI. This one shows a different skill: teaching a technical concept to people who have no background in it. In AI roles, explaining how a model works to leaders, customers, and teammates is often as important as building the model itself.</p>
       </section>
+
       <section id="description">
         <h2>Description</h2>
-        <div class="placeholder"><strong>To be added.</strong> What the artifact is in more detail: its format, contents, and key features.</div>
+        <p>The explainer is an interactive web page with four short steps, followed by a quick check:</p>
+        <ul>
+          <li><strong>The three rooms.</strong> An animated diagram shows a photo passing through the input layer, two hidden layers of neurons that look for clues like edges, whiskers, and pointy ears, and an output layer that makes the final call.</li>
+          <li><strong>Volume knobs.</strong> Visitors pick an animal and move sliders that act as weights. A meter shows how sure the network is, and a "doorbell" shows the activation threshold being crossed or missed.</li>
+          <li><strong>Learning from mistakes.</strong> Visitors train a real, tiny network on seven animals. Each round, it measures its errors and adjusts its weights, going from 3 of 7 correct guesses to 7 of 7. This shows backpropagation without any math.</li>
+          <li><strong>Why it matters.</strong> Real-world uses (face unlock, medical imaging, voice assistants, generated images) connect the idea to CNNs, RNNs, and GANs, along with an honest note about the "black box" problem.</li>
+        </ul>
+        <p>The page ends with a quick-check question that readers can answer before revealing the explanation.</p>
       </section>
+
       <section id="objective">
         <h2>Objective</h2>
-        <div class="placeholder"><strong>To be added.</strong> Why you created it. What business problem or audience need does it solve?</div>
+        <p>This artifact began as my initial post for the Workshop 3 discussion in AIML 500: Machine Learning Fundamentals, which asked students to work with a generative AI model to create the best simple explanation of neural networks, applying the lesson's strategies for communication and learning. The objective of the portfolio version was to go further: to let readers <em>experience</em> how a neural network learns rather than only read about it, so that terms like weights, activation functions, and backpropagation make sense to someone with no technical background.</p>
       </section>
+
       <section id="process">
         <h2>Process</h2>
-        <div class="placeholder"><strong>To be added.</strong> Your step-by-step approach: research, design choices, iterations, and testing.</div>
+        <ol class="steps">
+          <li><strong>Studying the strategies.</strong> I reviewed the lesson's communication and presentation strategies, including chunking, progressive disclosure, storytelling, visual aids, relevance, interactive learning, and feedback.</li>
+          <li><strong>Prompting for simplicity.</strong> I worked with a generative AI model to draft the explanation. The first drafts were accurate but too technical, with terms like "matrices" and "gradients," so I revised my prompts to ask for one analogy carried throughout, plain-language definitions, and no math.</li>
+          <li><strong>Checking accuracy.</strong> I checked each concept against the course reading (Jones, 2021), including how backpropagation sends the error backward and why deep networks are hard to explain.</li>
+          <li><strong>Turning the post into an experience.</strong> For the portfolio, I rebuilt the text post as an interactive page. The diagram, sliders, and training simulation apply the lesson's interactive learning and visual aid strategies, and the training example uses a real learning algorithm on a tiny data set, so what visitors see is how networks actually learn.</li>
+          <li><strong>Testing on desktop and mobile.</strong> I checked that every interaction works on both screen sizes and that the network reliably learns all seven animals within a few rounds.</li>
+        </ol>
       </section>
+
       <section id="tools">
         <h2>Tools and Technologies Used</h2>
-        <div class="placeholder"><strong>To be added.</strong> Be specific: Python version, libraries (for example scikit-learn 1.5), platforms, datasets, and any generative AI tools used (for example ChatGPT, Claude).</div>
+        <ul>
+          <li><strong>HTML, CSS, and JavaScript</strong>: the interactive diagram (SVG), the weight sliders, and the training simulation, which runs a small logistic learning algorithm in the browser.</li>
+          <li><strong>GitHub Pages</strong>: hosts the explainer and this portfolio.</li>
+          <li><strong>Course reading</strong>: Jones (2021) on IBM Developer, used to verify the explanations of neurons, backpropagation, CNNs, and RNNs.</li>
+          <li><strong>Claude</strong> (Anthropic): used to draft and refine the explanation through several rounds of prompting and to help build the page. I chose the analogy and the strategies, checked the content against the course reading, and made the final edits.</li>
+        </ul>
       </section>
+
       <section id="value-proposition">
         <h2>Value Proposition</h2>
-        <div class="placeholder"><strong>To be added.</strong> What this artifact does for the reader, not what it shows about you. State a concrete, ideally measurable benefit. Example: "This guide helps compliance analysts run a model bias check in under 10 minutes without writing code."</div>
+        <p class="vp-statement">If you have heard "neural network" a hundred times but never really understood it, this explainer lets you see one learn in about five minutes, with no math and no technical background required.</p>
+        <p>For managers, students, and anyone working alongside AI, understanding that a network learns from examples, and only from examples, makes it easier to ask the right questions: What data was it trained on? What has it never seen? Who checks its decisions? For educators and team leads, the page is a ready-made resource for introducing neural networks to a new audience.</p>
       </section>
+
       <section id="unique-value">
         <h2>Unique Value</h2>
-        <div class="placeholder"><strong>To be added.</strong> What makes your version different: your financial services background, explainability focus, or a distinctive approach.</div>
+        <p>Most beginner explanations of neural networks either stay abstract or jump straight into equations. This one carries a single analogy through every step and lets the reader do the learning: they turn the knobs themselves, then watch a real network discover on its own that "pointy ears" and "small size" matter while "whiskers" do not, because every animal in the set has whiskers. That moment teaches something many introductions miss: a network learns what <em>separates</em> examples, not what they have in common, and it can only learn from the examples it is given.</p>
       </section>
+
       <section id="relevance">
         <h2>Relevance</h2>
-        <div class="placeholder"><strong>To be added.</strong> How it connects to real-world AI/ML practice, current industry needs, and where the field is heading.</div>
+        <p>As AI spreads across industries, more people need a working understanding of how it learns, not just engineers. Clear communication is a core part of leading change with AI: people are more likely to trust and use a technology they understand, and more likely to question it when it matters. This explainer also reflects my goal as an aspiring AI engineer: to build systems that are not only accurate, but understandable to the people who rely on them.</p>
       </section>
+
       <section id="references">
         <h2>References</h2>
-        <div class="placeholder"><strong>To be added.</strong> APA 7 references for any sources, datasets, or tools cited. Write "None" if not applicable.</div>
+        <p>Jones, M. T. (2021, May 20). <em>A beginner's guide to artificial intelligence and machine learning</em>. IBM Developer. https://developer.ibm.com/articles/cc-beginner-guide-machine-learning-ai-cognitive/</p>
       </section>
     </div>
   </div>
