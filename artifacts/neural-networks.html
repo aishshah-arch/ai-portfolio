@@ -135,8 +135,8 @@ details p{margin:10px 0 0}
 <section class="step" id="s3">
  <span class="num">Step 3</span>
  <h2>Learning from mistakes</h2>
- <p>Nobody sets the knobs by hand in a real network. They start random, so the network guesses badly. After each guess, it checks the right answer, measures how wrong it was, and nudges every knob a little in the direction that would have helped. Sending the error backward like this is called <span class="term">backpropagation</span>. Press "Practice one round" and watch the accuracy climb.</p>
- <div class="row"><button id="step">Practice one round</button><button class="ghost" id="reset">Start over with random knobs</button></div>
+ <p>Nobody sets the knobs by hand in a real network. They start random, so the network guesses badly. After each guess, it checks the right answer and measures how wrong it was. Two things happen next. First, <span class="term">backpropagation</span> works backward through the network to figure out how much each knob contributed to the mistake. Then an <span class="term">optimizer</span> (a common one is called gradient descent) nudges each knob a little in the direction that would have helped. Press "Practice one round" and watch the accuracy climb.</p>
+ <div class="row"><button id="step">Practice one round</button><button class="ghost" id="test" disabled>Test on animals it has never seen</button><button class="ghost" id="reset">Start over with random knobs</button></div>
  <div class="train">
   <ul class="ex" id="examples"></ul>
   <div>
@@ -147,6 +147,7 @@ details p{margin:10px 0 0}
   </div>
  </div>
  <div class="log" id="log">The knobs start in random positions. Nothing has been learned yet.</div>
+ <ul class="ex" id="unseen" style="margin-top:8px"></ul>
 </section>
 
 <section class="step" id="s4">
@@ -164,7 +165,7 @@ details p{margin:10px 0 0}
 
 <details>
  <summary>Quick check: if a network keeps mistaking foxes for cats, what does it need more of?</summary>
- <p><b>More practice examples of foxes labeled "not a cat."</b> The network only learns from what it sees. If it rarely saw foxes during training, it never had a reason to turn down the clues that foxes and cats share, like whiskers and pointy ears. You saw this in Step 3: the knobs only moved when the network made a mistake it could learn from.</p>
+ <p><b>More <em>varied</em>, correctly labeled examples of both foxes and cats, and then a test on photos it has never seen.</b> Variety matters: foxes of different sizes and colors, cats of different breeds, in different poses and lighting. Simply adding more pictures that look like the ones it already has can reinforce the same weakness. You can see this in Step 3: after training, the network gets every practice animal right, but the "Test on animals it has never seen" button shows it still mistakes a fennec fox for a cat, because nothing it practiced on looked like a small fox. Real networks learn many more clues from the pixels themselves, and varied examples are what push them to find the clues that actually tell a fox from a cat.</p>
 </details>
 
 <div class="src">
@@ -244,7 +245,13 @@ const sig=z=>1/(1+Math.exp(-z));
   if(msg)log.textContent=msg;
   return ok;
  }
- function reset(){w=start.slice();b=startB;round=0;document.getElementById('step').disabled=false;
+ const unseen=[['🐈 Black cat',[1,1,0,1],1],['🦝 Raccoon',[1,0,1,1],0],['🦊 Fennec fox (a small fox)',[1,1,1,1],0]];
+ const ul=document.getElementById('unseen'),tb=document.getElementById('test');
+ tb.onclick=()=>{ul.innerHTML='';let ok=0;
+  unseen.forEach(([n,x,y])=>{const g=prob(x)>=.5?1:0,c=g===y;if(c)ok++;
+   const li=document.createElement('li');li.innerHTML=`<span>${n} <span class="hint">(${y?'cat':'not a cat'})</span></span><span class="g">${g?'says cat':'says no'}</span><span class="${c?'ok':'no'}">${c?'✓':'✗'}</span>`;ul.appendChild(li)});
+  log.textContent=`New animals: ${ok} of ${unseen.length} correct. Perfect practice scores don't guarantee the network works on new examples. The fennec fox is small with pointy ears, and nothing the network practiced on looked like that, so it guessed "cat." In fact, using only these four clues, a fennec fox looks exactly like the fluffy cat. The fix is more varied, correctly labeled examples, plus richer clues (like snout shape) that real networks learn from pixels, then testing again on animals it hasn't seen.`};
+ function reset(){w=start.slice();b=startB;round=0;document.getElementById('step').disabled=false;tb.disabled=true;ul.innerHTML='';
   render('The knobs start in random positions. Nothing has been learned yet, so most guesses are wrong.')}
  document.getElementById('reset').onclick=reset;
  document.getElementById('step').onclick=()=>{
@@ -252,8 +259,8 @@ const sig=z=>1/(1+Math.exp(-z));
   for(let k=0;k<3;k++)data.forEach(([n,x,y])=>{const p=prob(x),err=y-p;if(k===0&&((p>=.5?1:0)!==y))mistakes++;
    for(let i=0;i<4;i++)w[i]+=lr*err*x[i];b+=lr*err});
   const ok=render();
-  if(ok===data.length){document.getElementById('step').disabled=true;
-   log.textContent=`Round ${round}: every guess is now correct. Look at the knobs: "Pointy ears" and "Small size" turned up, while "Bushy tail" turned down. "Whiskers" turned down too: every animal here has whiskers, so they don't help tell a cat apart. The network worked out what makes a cat without anyone writing a rule.`}
+  if(ok===data.length){document.getElementById('step').disabled=true;tb.disabled=false;
+   log.textContent=`Round ${round}: every guess is now correct. Look at the knobs: "Pointy ears" and "Small size" turned up, while "Bushy tail" turned down. "Whiskers" turned down too: every animal here has whiskers, so they don't help tell a cat apart. The network worked out what makes a cat without anyone writing a rule. Now press "Test on animals it has never seen."`}
   else log.textContent=`Round ${round}: the network made ${mistakes} mistake${mistakes===1?'':'s'}, measured how wrong each one was, and nudged every knob a little. Keep practicing.`;
  };
  reset();

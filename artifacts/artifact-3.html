@@ -49,7 +49,7 @@
           <img src="assets/artifact-3-network.jpg" alt="Step 1 of the explainer: a neural network diagram with input pixels, hidden neurons that detect edges, colors, pointy ears, and whiskers, and an output node that decides Cat at 90 percent">
           <p class="meta" style="margin-top:8px">Step 1: a photo travels through the input, hidden, and output "rooms" of a network. Visitors press a button to animate it.</p>
           <img src="assets/artifact-3-training.jpg" alt="Step 3 of the explainer: a tiny network that has trained for four rounds and now correctly classifies seven animals, with bars showing how each clue's weight changed">
-          <p class="meta" style="margin-top:8px">Step 3: visitors train a tiny network themselves and watch it go from 3 of 7 correct guesses to 7 of 7.</p>
+          <p class="meta" style="margin-top:8px">Step 3: visitors train a tiny network themselves, watch it go from 3 of 7 correct guesses to 7 of 7, and then test it on animals it has never seen.</p>
           <div class="btn-row" style="margin-top:16px">
             <a class="btn primary" href="neural-networks.html">Try the interactive explainer</a>
           </div>
@@ -76,7 +76,7 @@
         <ul>
           <li><strong>The three rooms.</strong> An animated diagram shows a photo passing through the input layer, two hidden layers of neurons that look for clues like edges, whiskers, and pointy ears, and an output layer that makes the final call.</li>
           <li><strong>Volume knobs.</strong> Visitors pick an animal and move sliders that act as weights. A meter shows how sure the network is, and a "doorbell" shows the activation threshold being crossed or missed.</li>
-          <li><strong>Learning from mistakes.</strong> Visitors train a real, tiny network on seven animals. Each round, it measures its errors and adjusts its weights, going from 3 of 7 correct guesses to 7 of 7. This shows backpropagation without any math.</li>
+          <li><strong>Learning from mistakes.</strong> Visitors train a real, tiny network on seven animals. Each round, it measures its errors and adjusts its weights, going from 3 of 7 correct guesses to 7 of 7. A final button tests the trained network on animals it has never seen, and it mistakes a small fennec fox for a cat, showing why perfect practice scores are not enough.</li>
           <li><strong>Why it matters.</strong> Real-world uses (face unlock, medical imaging, voice assistants, generated images) connect the idea to CNNs, RNNs, and GANs, along with an honest note about the "black box" problem.</li>
         </ul>
         <p>The page ends with a quick-check question that readers can answer before revealing the explanation.</p>
@@ -94,14 +94,26 @@
           <li><strong>Prompting for simplicity.</strong> I worked with a generative AI model to draft the explanation. The first drafts were accurate but too technical, with terms like "matrices" and "gradients," so I revised my prompts to ask for one analogy carried throughout, plain-language definitions, and no math.</li>
           <li><strong>Checking accuracy.</strong> I checked each concept against the course reading (Jones, 2021), including how backpropagation sends the error backward and why deep networks are hard to explain.</li>
           <li><strong>Turning the post into an experience.</strong> For the portfolio, I rebuilt the text post as an interactive page. The diagram, sliders, and training simulation apply the lesson's interactive learning and visual aid strategies, and the training example uses a real learning algorithm on a tiny data set, so what visitors see is how networks actually learn.</li>
+          <li><strong>Revising from classmate feedback.</strong> A classmate's comments on my discussion post led to two improvements, shown in the table below.</li>
           <li><strong>Testing on desktop and mobile.</strong> I checked that every interaction works on both screen sizes and that the network reliably learns all seven animals within a few rounds.</li>
         </ol>
+        <h3>Feedback that shaped the final version</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feedback</th><th>What I changed</th></tr></thead>
+            <tbody>
+              <tr><td>The volume knob analogy for weights and the short steps make the topic approachable and show chunking and progressive disclosure.</td><td>Kept the single analogy and the four-step structure as the backbone of the page.</td></tr>
+              <tr><td>Backpropagation calculates how each weight contributed to the error, while an optimizer makes the adjustments.</td><td>Rewrote Step 3 to separate the two: backpropagation finds each knob's share of the mistake, then an optimizer such as gradient descent nudges the knobs.</td></tr>
+              <tr><td>For the fox example, use more varied, correctly labeled examples of foxes and cats and test on unseen images, since adding more similar pictures could reinforce existing weaknesses.</td><td>Updated the quick-check answer and added a "Test on animals it has never seen" button, where the trained network mistakes a fennec fox for a cat.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="tools">
         <h2>Tools and Technologies Used</h2>
         <ul>
-          <li><strong>HTML, CSS, and JavaScript</strong>: the interactive diagram (SVG), the weight sliders, and the training simulation, which runs a small logistic learning algorithm in the browser.</li>
+          <li><strong>HTML, CSS, and JavaScript</strong>: the interactive diagram (SVG), the weight sliders, and the training simulation, which runs a small learning algorithm (gradient descent) in the browser and then tests the result on new examples.</li>
           <li><strong>GitHub Pages</strong>: hosts the explainer and this portfolio.</li>
           <li><strong>Course reading</strong>: Jones (2021) on IBM Developer, used to verify the explanations of neurons, backpropagation, CNNs, and RNNs.</li>
           <li><strong>Claude</strong> (Anthropic): used to draft and refine the explanation through several rounds of prompting and to help build the page. I chose the analogy and the strategies, checked the content against the course reading, and made the final edits.</li>
