@@ -63,10 +63,10 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
   font-size: clamp(38px, 5.2vw, 66px); line-height: 1.02; letter-spacing: -.025em; font-weight: 700;
   font-stretch: 88%; font-variation-settings: "wdth" 88; color: #fff; margin: 0 0 28px; max-width: 13ch;
 }
-.byline { display: flex; gap: 18px; align-items: center; margin: 0 0 30px; max-width: 34em; }
-.byline img { width: 84px; height: 84px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px var(--ink), 0 0 0 5px var(--saffron); }
+.byline { display: flex; gap: 24px; align-items: center; margin: 0 0 30px; max-width: 36em; }
+.byline img { width: 148px; height: 148px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px var(--ink), 0 0 0 7px var(--saffron); }
 .byline p { margin: 0; font-size: 18px; color: #c9cde6; line-height: 1.55; }
-.hero-band .btn { border-color: #eef0fa; color: #eef0fa; }
+.hero-band .btn { border-color: #eef0fa; color: #eef0fa; padding: 11px 16px; font-size: 15px; }
 .hero-band .btn.primary { background: var(--saffron); border-color: var(--saffron); color: var(--ink); }
 .hero-band .btn.primary:hover { background: #e9a03c; }
 .hero-band .btn.ghost:hover { background: var(--ink-2); }
@@ -202,6 +202,8 @@ footer { padding: 28px 0 40px; color: var(--muted); font-size: 14.5px; font-fami
 }
 @media (max-width: 640px) {
   body { font-size: 18px; }
+  .byline { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .byline img { width: 132px; height: 132px; }
   .wrap { padding: 0 18px; }
   .block { padding: 60px 0; }
   .audience, .strengths, .other, .bio-grid { grid-template-columns: 1fr; gap: 26px; }
