@@ -147,6 +147,11 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .contact-band .btn { border-color: #eef0fa; color: #eef0fa; }
 .contact-band .btn.primary { background: var(--saffron); border-color: var(--saffron); color: var(--ink); }
 .contact-band .btn.ghost:hover { background: var(--ink-2); }
+.email-line { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 0 0 26px; }
+.email-line a { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.4vw, 28px); color: #fff; text-decoration-color: var(--saffron); text-decoration-thickness: 2px; overflow-wrap: anywhere; }
+.copy-btn { font-family: var(--ui); font-weight: 600; font-size: 14.5px; color: var(--ink); background: #eef0fa; border: 0; border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.copy-btn:hover { background: #fff; }
+.copied { font-family: var(--ui); font-size: 14.5px; color: #9fd8d3; }
 
 footer { padding: 28px 0 40px; color: var(--muted); font-size: 14.5px; font-family: var(--ui); }
 .contact-band + footer { background: var(--ink); color: #9aa0c4; border-top: 1px solid var(--ink-2); }

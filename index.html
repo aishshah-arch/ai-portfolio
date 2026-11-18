@@ -203,6 +203,11 @@
     <div class="wrap">
       <h2>Let's connect.</h2>
       <p>Open to conversations about AI, analytics, and data in financial services.</p>
+      <div class="email-line">
+        <a href="mailto:aish.shah.as@gmail.com" id="emailAddr">aish.shah.as@gmail.com</a>
+        <button type="button" class="copy-btn" id="copyEmail">Copy email</button>
+        <span class="copied" id="copied" role="status" aria-live="polite"></span>
+      </div>
       <div class="btn-row">
         <a class="btn primary" href="mailto:aish.shah.as@gmail.com">Email me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/aish-shah" target="_blank" rel="noopener">LinkedIn</a>
@@ -253,6 +258,18 @@
       if(p<1)requestAnimationFrame(tick);else box.classList.add('settled');}
     requestAnimationFrame(tick);}
   let last=reduce?1:0;window.addEventListener('resize',()=>{size();draw(box.classList.contains('settled')?1:last)});
+})();
+</script>
+<script>
+// Copy email: works even when no mail app is set up on the visitor's computer.
+(function(){const b=document.getElementById('copyEmail'),out=document.getElementById('copied');if(!b)return;
+ const addr='aish.shah.as@gmail.com';
+ b.addEventListener('click',async()=>{let ok=false;
+  try{await navigator.clipboard.writeText(addr);ok=true}catch(e){
+   const t=document.createElement('textarea');t.value=addr;document.body.appendChild(t);t.select();
+   try{ok=document.execCommand('copy')}catch(_){}t.remove();}
+  b.textContent=ok?'Copied':'Copy email';out.textContent=ok?'Email address copied to your clipboard.':'Select the address to copy it.';
+  setTimeout(()=>{b.textContent='Copy email';out.textContent=''},2500);});
 })();
 </script>
 </body>
