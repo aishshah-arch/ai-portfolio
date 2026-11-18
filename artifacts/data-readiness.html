@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Readiness Playbook | Interactive Guide</title>
+<meta name="description" content="An interactive playbook for three data challenges that can sink an AI project: cleaning without erasing people, scaling without inheriting bias, and sharing without exposing patients.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c2430;--muted:#5d6675;--line:#d9d6cd;
+--a:#2f5d8a;--b:#1f8a70;--c:#b07d2b;--d:#7a5ca8;--bad:#b4473a;--good:#2e7d4f;--soft:#eef3f8;--warm:#fff6e3}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:44px 20px 40px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;color:var(--c);margin:0 0 10px}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(30px,5vw,48px);line-height:1.1;margin:0 0 12px}
+h2{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,3vw,28px);margin:0 0 6px}
+h3{font-size:16px;margin:18px 0 8px}
+.lede{color:var(--muted);max-width:720px;margin:0 0 6px;font-size:17.5px}
+.by{color:var(--muted);font-size:14px;margin:0 0 26px}
+.big-idea{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:14px;padding:18px 22px;font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.4vw,22px);line-height:1.45;margin:0 0 24px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.nav a{font-size:14px;text-decoration:none;color:var(--a);background:var(--soft);border-radius:999px;padding:6px 14px;font-weight:500}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0}
+.num{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.step>p{margin:0 0 14px;max-width:780px}
+.case{font-size:14.5px;background:var(--soft);border-radius:10px;padding:10px 14px;margin:0 0 16px}
+.term{font-weight:600;background:var(--warm);padding:0 4px;border-radius:4px}
+.illus{font-size:12.5px;color:var(--muted);margin-top:8px}
+.grid2{display:grid;grid-template-columns:1fr 1.25fr;gap:22px}
+label.chk{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:15px}
+label.chk:hover{background:var(--soft)}
+label.chk input{margin-top:5px;accent-color:var(--a);width:16px;height:16px}
+label.chk small{display:block;color:var(--muted);font-size:13px}
+.stack{margin:6px 0 4px}
+.stack .lbl{font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+.sbar{display:flex;height:26px;border-radius:8px;overflow:hidden;background:#e7e9ee;margin:4px 0 12px}
+.sbar i{display:block;height:100%;transition:width .35s}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);margin-bottom:8px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--k)}
+.verdict{border-radius:12px;padding:12px 14px;font-size:15px;margin-top:6px}
+.verdict.good{background:#e3f2e6}.verdict.bad{background:#f8e4e1}.verdict.mid{background:var(--warm)}
+.leak{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:12px;font-size:15px}
+.big{font-family:Fraunces,Georgia,serif;font-size:34px;line-height:1}
+.pill{display:inline-block;font-size:12.5px;font-weight:600;border-radius:999px;padding:2px 10px}
+/* ranking */
+.rank{display:grid;grid-template-columns:repeat(15,1fr);gap:5px;margin:10px 0 6px}
+.cand{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;position:relative;transition:opacity .3s,transform .3s}
+.cand.A{background:var(--a)}.cand.B{background:var(--c)}
+.cand.out{opacity:.25;transform:scale(.88)}
+.ranklbl{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--a)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.stat{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:14px}
+.stat b{display:block;font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:600}
+/* privacy */
+.meters{display:grid;gap:12px;margin-top:14px}
+.meter .lbl{display:flex;justify-content:space-between;font-size:14.5px}
+.mbar{height:16px;border-radius:999px;background:#e7e9ee;overflow:hidden;margin-top:4px}
+.mbar i{display:block;height:100%;border-radius:999px;transition:width .3s}
+.leaks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:16px}
+.leaks div{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:14px}
+.leaks b{display:block}
+/* checklist */
+.cl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cl h3{margin:0 0 6px;font-family:Fraunces,Georgia,serif;font-size:19px}
+.cl .col{background:var(--soft);border-radius:14px;padding:14px}
+.prog{font-weight:600;margin-top:12px}
+.src{margin-top:30px;font-size:13px;color:var(--muted)}
+.src h2{font-family:Inter,sans-serif;font-size:15px;color:var(--ink);margin:0 0 6px}
+.src p{margin:0 0 6px;padding-left:28px;text-indent:-28px;overflow-wrap:anywhere}
+.back{display:inline-block;margin-top:10px;font-size:14px;color:var(--a)}
+@media (max-width:760px){
+ .grid2,.cl{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr}
+ .rank{grid-template-columns:repeat(8,1fr)}
+ .step{padding:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="eyebrow">AIML 500 · 4.3 Data Challenge Scenarios</p>
+<h1>The Data Readiness Playbook</h1>
+<p class="lede">Most AI projects don't fail because of the algorithm. They fail because of the data. This interactive guide walks through three data challenges that can sink a project, and what to check before each one.</p>
+<p class="by">Created by Aishwarya Shah · Indiana Wesleyan University · November 2026</p>
+
+<div class="big-idea">A model can only be as fair, accurate, and safe as the data behind it. Before you train, before you scale, and before you share, the right questions matter more than the right algorithm.</div>
+
+<nav class="nav" aria-label="Sections">
+ <a href="#clean">1. Cleaning without erasing people</a><a href="#scale">2. Scaling without inheriting bias</a><a href="#share">3. Sharing without exposing patients</a><a href="#checklist">Checklist</a>
+</nav>
+
+<!-- ============ 1. CLEANING ============ -->
+<section class="step" id="clean">
+ <span class="num">Challenge 1 · Before you train</span>
+ <h2>Cleaning without erasing people</h2>
+ <div class="case"><b>The case:</b> a company called ReviewPulse is building a sentiment model from 800,000 customer reviews. The data contains duplicates, bot spam, missing fields, emoji-only reviews, and reviews in several languages. The team wants to start training fast.</div>
+ <p>Cleaning is necessary, but every rule you add decides <em>whose voice the model learns from</em>. Choose which cleaning rules to apply and watch what happens to the data.</p>
+ <div class="grid2">
+  <div id="rules"></div>
+  <div>
+   <div class="legend">
+    <span style="--k:var(--a)">English</span><span style="--k:var(--b)">Spanish</span><span style="--k:var(--d)">Hindi</span><span style="--k:var(--c)">Emoji-only</span><span style="--k:#9aa4b1">Duplicates and spam</span>
+   </div>
+   <div class="stack"><div class="lbl"><span>Before cleaning</span><span id="beforeN"></span></div><div class="sbar" id="before"></div></div>
+   <div class="stack"><div class="lbl"><span>After cleaning</span><span id="afterN"></span></div><div class="sbar" id="after"></div></div>
+   <div class="verdict" id="cleanVerdict"></div>
+  </div>
+ </div>
+ <h3>Why the order matters: duplicates and test scores</h3>
+ <p style="margin:0 0 6px">If duplicate reviews are split across the training and test sets, the model is tested on reviews it has already seen.</p>
+ <label class="chk" style="padding-left:0"><input type="checkbox" id="dedupFirst" checked><span>Remove duplicates <b>before</b> splitting into training and test sets</span></label>
+ <div class="leak">
+  <div><div class="illus" style="margin:0">Accuracy the team reports</div><div class="big" id="reported"></div></div>
+  <div><div class="illus" style="margin:0">Accuracy on truly new reviews</div><div class="big" id="real"></div></div>
+  <div id="leakMsg" style="flex:1;min-width:220px"></div>
+ </div>
+ <p class="illus">Numbers are illustrative, chosen to show the pattern.</p>
+</section>
+
+<!-- ============ 2. SCALING ============ -->
+<section class="step" id="scale">
+ <span class="num">Challenge 2 · Before you scale</span>
+ <h2>Scaling without inheriting bias</h2>
+ <div class="case"><b>The case:</b> TalentBridge trained a résumé-screening model on ten years of one company's hiring decisions. It tests well on that history. Now the company wants to use it in a new country, on ten times as many applications.</div>
+ <p>The first problem is the <span class="term">label</span>: the model learned "who past managers hired," not "who would succeed." A common fairness check is the <span class="term">four-fifths rule</span>: each group's selection rate should be at least 80% of the highest group's. Below, a fictional model passes that check. But the recruiter only has time to interview the top of the ranked list. Move the slider to see who actually gets an interview.</p>
+ <div class="legend"><span style="--k:var(--a)">Group A</span><span style="--k:var(--c)">Group B</span></div>
+ <div class="rank" id="rank"></div>
+ <div class="ranklbl"><span>← ranked highest by the model</span><span>ranked lowest →</span></div>
+ <div style="margin-top:14px"><label for="topN" style="font-size:15px">Recruiter interviews the top <b id="topNv"></b> candidates</label><input type="range" id="topN" min="3" max="15" value="6"></div>
+ <div class="stats">
+  <div class="stat">Four-fifths rule<b id="ffr"></b><span id="ffrNote"></span></div>
+  <div class="stat">Group A interviewed<b id="ia"></b>of 8 who passed</div>
+  <div class="stat">Group B interviewed<b id="ib"></b>of 7 who passed</div>
+ </div>
+ <div class="verdict" id="rankVerdict"></div>
+ <h3>Evidence to require before scaling</h3>
+ <ul style="margin:0;padding-left:20px;font-size:15px">
+  <li><b>Local validation:</b> test on applications from the new country, reviewed by local recruiters who know its schools and résumé styles.</li>
+  <li><b>Error rates by group</b>, not just selection rates: how many qualified people in each group were wrongly rejected?</li>
+  <li><b>A limited pilot</b> with human review of rejections before the full rollout.</li>
+  <li><b>Capacity at 10× volume:</b> enough reviewers, appeals, and monitoring to catch problems before they reach thousands of applicants.</li>
+ </ul>
+ <p class="illus">Fictional data, simplified to show the pattern.</p>
+</section>
+
+<!-- ============ 3. SHARING ============ -->
+<section class="step" id="share">
+ <span class="num">Challenge 3 · Before you share</span>
+ <h2>Sharing without exposing patients</h2>
+ <div class="case"><b>The case:</b> two hospitals, Riverbend and Lakeside, want to build a better diagnostic model together, since each one's data is too small alone. The records are sensitive, the hospitals code data differently, and neither wants to hand over raw records.</div>
+ <p>One approach is <span class="term">federated learning</span>: the model travels to each hospital and trains there, and only model updates are shared, not patient records. To protect patients further, teams can add <span class="term">differential privacy</span>, mathematical noise that makes it harder to learn anything about one person. But noise has a cost. Move the slider.</p>
+ <div><label for="noise" style="font-size:15px">Privacy noise level: <b id="noiseV"></b></label><input type="range" id="noise" min="0" max="10" value="2"></div>
+ <div class="meters">
+  <div class="meter"><div class="lbl"><span>🔒 Privacy protection</span><b id="pp"></b></div><div class="mbar"><i id="ppb" style="background:var(--a)"></i></div></div>
+  <div class="meter"><div class="lbl"><span>🩺 Detecting a common condition (thousands of patients)</span><b id="cc"></b></div><div class="mbar"><i id="ccb" style="background:var(--good)"></i></div></div>
+  <div class="meter"><div class="lbl"><span>🔬 Detecting a rare condition (a few dozen patients)</span><b id="rc"></b></div><div class="mbar"><i id="rcb" style="background:var(--bad)"></i></div></div>
+ </div>
+ <div class="verdict" id="privVerdict"></div>
+ <h3>No single technique is enough</h3>
+ <div class="leaks">
+  <div><b>1. Make the data compatible first</b>Map both hospitals to the same codes and definitions. Combining mismatched data can make a model worse, not better.</div>
+  <div><b>2. Remember what still leaks</b>Model updates and the final model can still reveal information. Privacy techniques reduce risk; they don't remove it.</div>
+  <div><b>3. Add security and governance</b>Access controls, audit logs, data-use agreements, and clear rules on who may use the model and for what.</div>
+  <div><b>4. Validate at each site</b>Test the shared model separately at both hospitals to make sure it works for each patient population.</div>
+ </div>
+ <p class="illus">Curves are illustrative. Real tradeoffs depend on the data, the model, and the privacy settings.</p>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section class="step" id="checklist">
+ <span class="num">Take it with you</span>
+ <h2>The Data Readiness Checklist</h2>
+ <p>Use this before your next AI project. Tick each question you can answer with evidence.</p>
+ <div class="cl" id="cl"></div>
+ <div class="prog" id="prog"></div>
+</section>
+
+<div class="src">
+ <h2>Sources</h2>
+ <p>Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., &amp; Galstyan, A. (2021). A survey on bias and fairness in machine learning. <em>ACM Computing Surveys, 54</em>(6), Article 115. https://doi.org/10.1145/3457607</p>
+ <p>Schwartz, R., Vassilev, A., Greene, K., Perine, L., Burt, A., &amp; Hall, P. (2022). <em>Towards a standard for identifying and managing bias in artificial intelligence</em> (NIST Special Publication 1270). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.1270</p>
+ <p>Scenarios (ReviewPulse, TalentBridge, Riverbend and Lakeside) are fictional cases from the AIML 500 Data Challenge Scenarios activity.</p>
+ <p>AI use: Claude (Anthropic) served as the coaching chatbot for the original activity and helped build this page. The decisions in each scenario, the choice of what to visualize, and the final edits are my own.</p>
+ <a class="back" href="artifact-4.html">&larr; About this artifact</a>
+</div>
+</div>
+
+<script>
+// ---------- 1. Cleaning ----------
+(function(){
+ // illustrative composition of 800,000 reviews (in thousands)
+ const seg={en:440,es:96,hi:48,emoji:64,junk:152}; // junk = duplicates (112) + spam (40)
+ const rules=[
+  {id:'dup',name:'Remove exact and near-duplicates',hint:'About 112,000 repeated reviews',good:true,on:true},
+  {id:'spam',name:'Remove likely bot spam',hint:'About 40,000 reviews, after checking a sample',good:true,on:true},
+  {id:'emoji',name:'Remove emoji-only reviews',hint:'"😍😍😍" or "🤮"',good:false,on:false},
+  {id:'lang',name:'Remove non-English reviews',hint:'Spanish and Hindi reviews',good:false,on:false}
+ ];
+ const box=document.getElementById('rules');
+ rules.forEach(r=>{const l=document.createElement('label');l.className='chk';
+  l.innerHTML=`<input type="checkbox" ${r.on?'checked':''}><span>${r.name}<small>${r.hint}</small></span>`;
+  l.querySelector('input').onchange=e=>{r.on=e.target.checked;render()};box.appendChild(l)});
+ const col={en:'var(--a)',es:'var(--b)',hi:'var(--d)',emoji:'var(--c)',junk:'#9aa4b1'};
+ function bar(el,parts,total){el.innerHTML='';Object.keys(parts).forEach(k=>{const i=document.createElement('i');i.style.background=col[k];i.style.width=(parts[k]/total*100)+'%';i.title=k;el.appendChild(i)})}
+ const fmt=n=>Math.round(n)+',000';
+ function render(){
+  const on=Object.fromEntries(rules.map(r=>[r.id,r.on]));
+  const after={en:seg.en,es:on.lang?0:seg.es,hi:on.lang?0:seg.hi,emoji:on.emoji?0:seg.emoji,
+   junk:seg.junk-(on.dup?112:0)-(on.spam?40:0)};
+  const T=Object.values(seg).reduce((a,b)=>a+b),A=Object.values(after).reduce((a,b)=>a+b);
+  bar(document.getElementById('before'),seg,T);bar(document.getElementById('after'),after,T);
+  document.getElementById('beforeN').textContent=fmt(T)+' reviews';
+  document.getElementById('afterN').textContent=fmt(A)+' reviews';
+  const v=document.getElementById('cleanVerdict');
+  if(on.lang||on.emoji){v.className='verdict bad';
+   v.innerHTML=`<b>⚠️ The data looks tidier, but people disappeared.</b> ${on.lang?'Removing non-English reviews erased '+fmt(seg.es+seg.hi)+' customers, so the model will work poorly for Spanish and Hindi speakers. ':''}${on.emoji?'Emoji-only reviews often carry the clearest feelings ("😍" vs "🤮"); removing them throws away real signal. ':''}<b>Unusual doesn't mean invalid.</b>`}
+  else if(on.dup&&on.spam){v.className='verdict good';v.innerHTML='<b>✅ Removed noise, kept people.</b> Duplicates and spam are gone, and every language and review style is still represented. Comparing the "before" and "after" bars like this is how you check that cleaning didn\'t quietly remove a group.'}
+  else{v.className='verdict mid';v.innerHTML='<b>Some noise remains.</b> Repeated reviews make one opinion look far more common than it is, and spam teaches the model patterns from bots, not customers.'}
+ }
+ render();
+ const df=document.getElementById('dedupFirst');
+ function leak(){const ok=df.checked;
+  document.getElementById('reported').textContent=ok?'86%':'94%';
+  document.getElementById('real').textContent='86%';
+  document.getElementById('reported').style.color=ok?'var(--good)':'var(--bad)';
+  document.getElementById('leakMsg').innerHTML=ok?'<span class="pill" style="background:#e3f2e6;color:var(--good)">Honest score</span> The test set only contains reviews the model has never seen, so the reported score matches reality.'
+   :'<span class="pill" style="background:#f8e4e1;color:var(--bad)">Inflated score</span> Copies of training reviews leaked into the test set, so the model looks 8 points better than it really is, like a student who saw the exam answers.'}
+ df.onchange=leak;leak();
+})();
+
+// ---------- 2. Ranking ----------
+(function(){
+ // 20 applicants (10 per group). Model passes 8 of Group A and 7 of Group B, then ranks them.
+ const order=['A1','A2','A3','A4','A5','A6','B1','A7','A8','B2','B3','B4','B5','B6','B7'];
+ const rank=document.getElementById('rank');
+ order.forEach((c,i)=>{const d=document.createElement('div');d.className='cand '+c[0];d.textContent='#'+(i+1);d.title='Group '+c[0];rank.appendChild(d)});
+ const s=document.getElementById('topN');
+ function render(){const n=+s.value;document.getElementById('topNv').textContent=n;
+  [...rank.children].forEach((d,i)=>d.classList.toggle('out',i>=n));
+  const top=order.slice(0,n),a=top.filter(c=>c[0]==='A').length,b=top.length-a;
+  document.getElementById('ia').textContent=a;document.getElementById('ib').textContent=b;
+  document.getElementById('ffr').textContent='Passes ✓';
+  document.getElementById('ffrNote').textContent='70% vs 80% selected = ratio 0.875';
+  const ra=a/8,rb=b/7,v=document.getElementById('rankVerdict');
+  if(n>=15){v.className='verdict good';v.innerHTML='<b>Everyone who passed gets an interview,</b> so the ranking doesn\'t matter. But recruiters rarely have time for that, especially at ten times the volume.'}
+  else if(rb<ra*0.8){v.className='verdict bad';v.innerHTML=`<b>⚠️ The "ranking trap."</b> The model passes the four-fifths rule, yet only ${b} of 7 Group B candidates get interviewed, compared with ${a} of 8 from Group A, because the model ranked Group B lower. A selection-rate check can't see this.`}
+  else{v.className='verdict mid';v.innerHTML='<b>Closer to balanced at this cutoff,</b> but the outcome still depends on how far down the list the recruiter reads. Fairness has to be checked where real decisions happen.'}
+ }
+ s.oninput=render;render();
+})();
+
+// ---------- 3. Privacy ----------
+(function(){
+ const s=document.getElementById('noise');
+ const words=['None','Very low','Low','Low','Moderate','Moderate','Moderate','High','High','Very high','Maximum'];
+ function render(){const n=+s.value;
+  const pp=Math.min(100,8+n*9.2),cc=Math.max(40,92-n*2.4),rc=Math.max(4,84-n*n*0.95);
+  document.getElementById('noiseV').textContent=words[n];
+  [['pp',pp],['cc',cc],['rc',rc]].forEach(([k,v])=>{document.getElementById(k).textContent=Math.round(v)+'%';document.getElementById(k+'b').style.width=v+'%'});
+  const v=document.getElementById('privVerdict');
+  if(n<=2){v.className='verdict mid';v.innerHTML='<b>Useful but exposed.</b> The model detects both conditions well, but there is little protection for individual patients.'}
+  else if(rc<40){v.className='verdict bad';v.innerHTML=`<b>⚠️ Private, but clinically blind to rare conditions.</b> The noise now drowns out the signal from the few dozen rare-disease patients, so detection falls to ${Math.round(rc)}%, while the common condition is barely affected. The patients who most needed the shared data pay the highest price.`}
+  else{v.className='verdict good';v.innerHTML='<b>A workable balance.</b> Patients get meaningful protection, and the rare condition is still detectable. Finding this point takes testing, not guessing.'}
+ }
+ s.oninput=render;render();
+})();
+
+// ---------- Checklist ----------
+(function(){
+ const cols=[['Before you train',['Do I know where the data came from and how it was collected?','Did I keep an untouched copy of the raw data?','Did I remove duplicates before splitting training and test data?','Did I compare who is represented before and after cleaning?']],
+  ['Before you scale',['Does my label measure what I actually care about?','Did I test on data from the new setting, not just old data?','Did I check error rates for each group, not just overall accuracy?','Is there human review, an appeal path, and monitoring after launch?']],
+  ['Before you share',['Are the datasets compatible (same codes and definitions)?','Do I know who I am protecting the data from?','Did I weigh privacy against usefulness, especially for small groups?','Are access, audit logs, and data-use rules in place?']]];
+ const cl=document.getElementById('cl');let total=0;
+ cols.forEach(([h,qs])=>{const c=document.createElement('div');c.className='col';c.innerHTML=`<h3>${h}</h3>`;
+  qs.forEach(q=>{total++;const l=document.createElement('label');l.className='chk';l.style.padding='6px 4px';l.innerHTML=`<input type="checkbox"><span>${q}</span>`;l.querySelector('input').onchange=upd;c.appendChild(l)});cl.appendChild(c)});
+ function upd(){const n=cl.querySelectorAll('input:checked').length;
+  document.getElementById('prog').textContent=n===total?`✅ ${n} of ${total}: your data is ready for the next step.`:`${n} of ${total} answered with evidence.`}
+ upd();
+})();
+</script>
+</body>
+</html>

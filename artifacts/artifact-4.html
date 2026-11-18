@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artifact 4 | Aishwarya Shah</title>
+  <title>The Data Readiness Playbook | Aishwarya Shah</title>
+  <meta name="description" content="An interactive playbook for cleaning, scaling, and sharing data responsibly in AI projects, created for AIML 500.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,9 +25,8 @@
 <main class="wrap">
   <div class="artifact-head">
     <p class="eyebrow">Artifact 4</p>
-    <!-- TITLE: replace with the artifact title -->
-    <h1>Artifact 4 Title</h1>
-    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; [Month Year]</p>
+    <h1>The Data Readiness Playbook: Cleaning, Scaling, and Sharing Data Responsibly</h1>
+    <p class="meta">AIML 500: Machine Learning Fundamentals &nbsp;|&nbsp; Indiana Wesleyan University &nbsp;|&nbsp; November 2026</p>
     <a class="back" href="../index.html#artifacts">&larr; All artifacts</a>
   </div>
   <div class="artifact-body">
@@ -46,47 +46,96 @@
       <section id="visual">
         <h2>Artifact Visual</h2>
         <div class="deliverable">
-          <div class="placeholder"><strong>Add the deliverable here.</strong> The actual work comes first: a screenshot, embed, live link, or downloadable file. A description alone does not count.</div>
-          <!-- Example image: <img src="assets/artifact-4-screenshot.png" alt="Describe the screenshot"> -->
-          <!-- Example download: <a class="btn primary" href="assets/artifact-4.pdf" download>Download (PDF)</a> -->
-          <!-- Example code link: <a class="btn ghost" href="https://github.com/aishshah-arch/REPO" target="_blank" rel="noopener">View code on GitHub</a> -->
+          <img src="assets/artifact-4-cleaning.jpg" alt="Challenge 1 of the playbook: cleaning rules for 800,000 reviews, with before and after bars showing that removing non-English reviews erased 144,000 customers">
+          <p class="meta" style="margin-top:8px">Challenge 1: visitors choose cleaning rules and see who disappears from the data. Removing non-English reviews looks tidy but erases 144,000 customers.</p>
+          <img src="assets/artifact-4-ranking.jpg" alt="Challenge 2 of the playbook: a résumé-screening model that passes the four-fifths rule but ranks one group lower, so none of them reach an interview">
+          <p class="meta" style="margin-top:8px">Challenge 2: a hiring model passes a common fairness check, yet the "ranking trap" means one group never reaches an interview.</p>
+          <img src="assets/artifact-4-privacy.jpg" alt="Challenge 3 of the playbook: a privacy noise slider set high, where privacy protection is strong but rare-condition detection drops sharply">
+          <p class="meta" style="margin-top:8px">Challenge 3: turning up privacy noise protects patients but leaves the model "clinically blind" to rare conditions.</p>
+          <div class="btn-row" style="margin-top:16px">
+            <a class="btn primary" href="data-readiness.html">Try the interactive playbook</a>
+          </div>
+          <div class="flow" aria-label="Playbook structure">
+            <span>Before you train</span><i>&rarr;</i>
+            <span>Before you scale</span><i>&rarr;</i>
+            <span>Before you share</span><i>&rarr;</i>
+            <span>Readiness checklist</span>
+          </div>
         </div>
       </section>
+
       <section id="introduction">
         <h2>Introduction</h2>
-        <div class="placeholder"><strong>To be added.</strong> Two or three sentences telling the reader what this artifact is and why it matters to them.</div>
+        <p>Most AI projects don't fail because of the algorithm. They fail because of the data: data that was cleaned in a way that erased people, data from the past that carried old biases into new decisions, or sensitive data that could not be shared safely. This artifact is an interactive playbook that walks through those three challenges and gives readers a checklist they can use on their own projects.</p>
+        <p>My earlier artifacts show how I build an AI tool, research AI's history, and explain how neural networks learn. This one shows a different competency: responsible data practice, meaning the judgment to ask the right questions before training, scaling, or sharing a model.</p>
       </section>
+
       <section id="description">
         <h2>Description</h2>
-        <div class="placeholder"><strong>To be added.</strong> What the artifact is in more detail: its format, contents, and key features.</div>
+        <p>The playbook is an interactive web page built around three fictional cases from the course:</p>
+        <ul>
+          <li><strong>Cleaning without erasing people.</strong> Visitors choose cleaning rules for 800,000 customer reviews and compare the data before and after. Removing duplicates and spam improves the data; removing emoji-only or non-English reviews quietly erases customers. A second control shows how duplicates that leak into the test set inflate a model's accuracy score.</li>
+          <li><strong>Scaling without inheriting bias.</strong> A résumé-screening model passes the four-fifths rule, but a slider showing how many candidates a recruiter interviews reveals the "ranking trap," where one group is ranked too low to ever be seen. The section lists the evidence to require before scaling to a new country and ten times the volume.</li>
+          <li><strong>Sharing without exposing patients.</strong> Two hospitals collaborate through federated learning. A privacy noise slider shows the tradeoff: stronger protection for patients, but much weaker detection of rare conditions.</li>
+          <li><strong>The Data Readiness Checklist.</strong> Twelve questions grouped into "before you train," "before you scale," and "before you share" that readers can tick off for their own projects.</li>
+        </ul>
       </section>
+
       <section id="objective">
         <h2>Objective</h2>
-        <div class="placeholder"><strong>To be added.</strong> Why you created it. What business problem or audience need does it solve?</div>
+        <p>This artifact began as the Workshop 4 Data Challenge Scenarios assignment in AIML 500: Machine Learning Fundamentals, where I worked through three realistic data challenges with an AI coaching chatbot and explained my reasoning for each. The objective of the portfolio version was to turn that reasoning into something others can use: a hands-on guide that shows managers, analysts, and new practitioners why data decisions shape a model's fairness, accuracy, and safety, and what to check before each stage of a project.</p>
       </section>
+
       <section id="process">
         <h2>Process</h2>
-        <div class="placeholder"><strong>To be added.</strong> Your step-by-step approach: research, design choices, iterations, and testing.</div>
+        <ol class="steps">
+          <li><strong>Working through the scenarios.</strong> In the original activity, I proposed and defended approaches to each challenge: keeping emoji and non-English reviews instead of removing them, pausing the hiring model's rollout because past hiring decisions are not a neutral label, and using federated learning with data standardization for the hospitals.</li>
+          <li><strong>Revising under questioning.</strong> The coaching chatbot challenged my reasoning, and two of its questions changed my thinking (shown in the table below).</li>
+          <li><strong>Choosing what to visualize.</strong> For each scenario, I picked the one idea that is easiest to misunderstand and hardest to see in text: who disappears during cleaning, how a ranking hides bias that a fairness check misses, and what privacy noise costs.</li>
+          <li><strong>Building and testing.</strong> I built the playbook as an interactive page, used illustrative numbers labeled as such, and tested every control on desktop and mobile.</li>
+        </ol>
+        <h3>Feedback that shaped the final version</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feedback</th><th>What I changed</th></tr></thead>
+            <tbody>
+              <tr><td>When asked how I would check that cleaning improved the data, I first suggested testing on new datasets. The coach pointed out a more direct check: comparing the data before and after cleaning to see whether a group was removed.</td><td>Built Challenge 1 around exactly that comparison, with "before" and "after" bars that show when a cleaning rule erases a group of customers.</td></tr>
+              <tr><td>I initially claimed differential privacy means no patient record can "ever" be reverse-engineered. The coach asked what heavy privacy noise would do to detecting a rare disease.</td><td>Built Challenge 3's privacy slider to show the tradeoff, and wrote the page to say that privacy techniques reduce risk rather than remove it.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
+
       <section id="tools">
         <h2>Tools and Technologies Used</h2>
-        <div class="placeholder"><strong>To be added.</strong> Be specific: Python version, libraries (for example scikit-learn 1.5), platforms, datasets, and any generative AI tools used (for example ChatGPT, Claude).</div>
+        <ul>
+          <li><strong>HTML, CSS, and JavaScript</strong>: the interactive cleaning rules, before-and-after bars, ranking slider, privacy slider, and checklist.</li>
+          <li><strong>GitHub Pages</strong>: hosts the playbook and this portfolio.</li>
+          <li><strong>Research sources</strong>: Mehrabi et al. (2021) on bias in machine learning and the NIST framework for managing AI bias (Schwartz et al., 2022).</li>
+          <li><strong>Claude</strong> (Anthropic): served as the coaching chatbot in the original activity and helped build this page. I made the decisions in each scenario, chose what to visualize, and made the final edits.</li>
+        </ul>
       </section>
+
       <section id="value-proposition">
         <h2>Value Proposition</h2>
-        <div class="placeholder"><strong>To be added.</strong> What this artifact does for the reader, not what it shows about you. State a concrete, ideally measurable benefit. Example: "This guide helps compliance analysts run a model bias check in under 10 minutes without writing code."</div>
+        <p class="vp-statement">If you are about to start, scale, or share an AI project, this playbook shows you in ten minutes the three data mistakes most likely to make it unfair, inaccurate, or unsafe, and gives you a checklist to catch them first.</p>
+        <p>For managers, it turns abstract warnings about "bias" and "privacy" into concrete questions they can ask their teams. For analysts and new practitioners, it shows that a tidy dataset, a passing fairness check, or a strong privacy setting can each hide a real problem.</p>
       </section>
+
       <section id="unique-value">
         <h2>Unique Value</h2>
-        <div class="placeholder"><strong>To be added.</strong> What makes your version different: your financial services background, explainability focus, or a distinctive approach.</div>
+        <p>Most guides to data quality, fairness, and privacy treat them as separate topics with separate rules. This playbook shows a common thread: in each case, the step that looks responsible on the surface can hurt the people the model most needs to serve. Removing "unusual" reviews erases customers who write in other languages, passing a selection-rate check can still bury one group, and maximum privacy can leave patients with rare conditions undiagnosed. Letting readers trigger each of these outcomes themselves makes the lesson stick in a way a list of rules does not.</p>
       </section>
+
       <section id="relevance">
         <h2>Relevance</h2>
-        <div class="placeholder"><strong>To be added.</strong> How it connects to real-world AI/ML practice, current industry needs, and where the field is heading.</div>
+        <p>As organizations move AI from pilots into everyday decisions about customers, job applicants, and patients, data problems become people problems. The NIST framework stresses that managing AI bias requires attention to human and systemic factors, not only technical fixes (Schwartz et al., 2022). This playbook reflects how I want to work as an AI engineer: asking whose data is missing, what a label really measures, and what each safeguard costs, before a model reaches the people it affects.</p>
       </section>
+
       <section id="references">
         <h2>References</h2>
-        <div class="placeholder"><strong>To be added.</strong> APA 7 references for any sources, datasets, or tools cited. Write "None" if not applicable.</div>
+        <p>Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., &amp; Galstyan, A. (2021). A survey on bias and fairness in machine learning. <em>ACM Computing Surveys, 54</em>(6), Article 115. https://doi.org/10.1145/3457607</p>
+        <p>Schwartz, R., Vassilev, A., Greene, K., Perine, L., Burt, A., &amp; Hall, P. (2022). <em>Towards a standard for identifying and managing bias in artificial intelligence</em> (NIST Special Publication 1270). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.1270</p>
       </section>
     </div>
   </div>
