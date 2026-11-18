@@ -7,7 +7,7 @@
   <meta name="description" content="Professional AI and machine learning portfolio of Aishwarya (Aish) Shah, M.S. in Artificial Intelligence candidate at Indiana Wesleyan University.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">Aishwarya Shah</a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Sections">
       <a href="#bio">Bio</a>
       <a href="#value">Value</a>
       <a href="#artifacts">Artifacts</a>
@@ -25,38 +25,50 @@
 </header>
 
 <main id="top">
-  <div class="wrap hero">
-   <div class="hero-grid">
-   <div>
-    <p class="eyebrow">AI &amp; Machine Learning Portfolio</p>
-    <h1>Turning complex, regulated data into AI that people can trust and use.</h1>
-    <p class="lede">I'm Aish, a data and analytics professional with eight years of experience in financial services, now pursuing an M.S. in Artificial Intelligence on the path to becoming an AI Engineer. This site collects the work I'm building along the way.</p>
-    <div class="btn-row">
-      <a class="btn primary" href="#artifacts">View artifacts</a>
-      <a class="btn ghost" href="https://mizou.com/preview-bot?ID=164703" target="_blank" rel="noopener">Try my AI chatbot (Artifact 1)</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/aish-shah" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- HERO: scattered data points settle into three clusters -->
+  <div class="hero-band">
+    <div class="wrap">
+      <div>
+        <h1>Turning complex, regulated data into AI that people can trust and use.</h1>
+        <div class="byline">
+          <img src="images/headshot.jpg" alt="Portrait of Aishwarya Shah" width="84" height="84">
+          <p>I'm Aish, a data and analytics professional with eight years of experience in financial services, now pursuing an M.S. in Artificial Intelligence on the path to becoming an AI Engineer. This site collects the work I'm building along the way.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn primary" href="#artifacts">View artifacts</a>
+          <a class="btn ghost" href="https://mizou.com/preview-bot?ID=164703" target="_blank" rel="noopener">Try my AI chatbot (Artifact 1)</a>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <div class="clusters" id="clusters" role="img" aria-label="An animation of scattered data points settling into three groups labeled Explainable, Actionable, and Responsible">
+          <canvas></canvas>
+          <span class="cl-label" style="color:#e9a03c">Explainable</span>
+          <span class="cl-label" style="color:#39b5ac">Actionable</span>
+          <span class="cl-label" style="color:#b88be0">Responsible</span>
+        </div>
+        <figcaption class="cluster-caption">Messy data in, clear groups out: what I aim for in every model.</figcaption>
+      </figure>
     </div>
-   </div>
-   <img class="headshot" src="images/headshot.jpg" alt="Portrait of Aishwarya Shah" width="320" height="320">
-   </div>
   </div>
 
   <!-- WHO THIS SITE IS FOR -->
-  <section id="audience">
+  <section class="block" id="audience">
     <div class="wrap">
-      <h2>Who This Site Is For</h2>
-      <p class="section-intro">This portfolio is a resource, not just a record. Each artifact is written so you can learn from it and apply it.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <h3>Hiring managers &amp; recruiters</h3>
+      <div class="rail">
+        <h2>Who this site is for</h2>
+        <p>A resource, not just a record. Each artifact is written so you can learn from it and apply it.</p>
+      </div>
+      <div class="audience">
+        <div style="--c:var(--saffron)">
+          <h3>Hiring managers and recruiters</h3>
           <p>Evidence of how I approach AI and machine learning problems, from objective through process to measurable value.</p>
         </div>
-        <div class="pillar">
-          <h3>Business &amp; compliance leaders</h3>
-          <p>Practical, plain-language explanations of how AI can be used responsibly in regulated industries like financial services.</p>
+        <div style="--c:var(--teal)">
+          <h3>Business and compliance leaders</h3>
+          <p>Practical, plain-language explanations of how AI can be used responsibly in regulated industries.</p>
         </div>
-        <div class="pillar">
-          <h3>Fellow students &amp; analysts</h3>
+        <div style="--c:var(--plum)">
+          <h3>Fellow students and analysts</h3>
           <p>Guides, comparisons, and examples you can reuse as you start working with AI and ML yourself.</p>
         </div>
       </div>
@@ -64,10 +76,12 @@
   </section>
 
   <!-- PROFESSIONAL BIO -->
-  <section id="bio">
+  <section class="block" id="bio">
     <div class="wrap">
-      <h2>Professional Bio</h2>
-      <p class="section-intro">Who I am, where I've been, and where I'm headed.</p>
+      <div class="rail">
+        <h2>Professional bio</h2>
+        <p>Who I am, where I've been, and where I'm headed.</p>
+      </div>
       <div class="bio-grid">
         <div>
           <p>I've spent the past eight years helping organizations make better decisions with data. Most recently, I was a Senior Quantitative Analyst at JPMorgan Chase Wealth Management on the Audience Targeting team, where I built propensity models with XGBoost and LightGBM, used SHAP to explain model decisions to non-technical stakeholders, and designed audience strategies and executive dashboards for national marketing campaigns.</p>
@@ -78,123 +92,117 @@
         <aside class="facts">
           <h3>Education</h3>
           <ul>
-            <li>M.S. Artificial Intelligence, Indiana Wesleyan University (in progress, 2026 to 2028)</li>
-            <li>M.S. Information Management, University of Illinois Urbana-Champaign (GPA 4.0)</li>
-            <li>B.E. Computer Science, Bhilai Institute of Technology (GPA 4.0)</li>
+            <li><b>M.S. Artificial Intelligence</b>Indiana Wesleyan University, in progress (2026 to 2028)</li>
+            <li><b>M.S. Information Management</b>University of Illinois Urbana-Champaign, GPA 4.0</li>
+            <li><b>B.E. Computer Science</b>Bhilai Institute of Technology, GPA 4.0</li>
           </ul>
-          <h3>Core Skills</h3>
-          <div class="chips">
-            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Snowflake</span>
-            <span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">SHAP</span>
-            <span class="chip">SAS Viya</span><span class="chip">Tableau</span><span class="chip">Power BI</span>
-            <span class="chip">Alteryx</span><span class="chip">Prompt Engineering</span>
-          </div>
+          <h3>Core skills</h3>
+          <p class="skills"><span>Python</span> <span>SQL</span> <span>Snowflake</span> <span>XGBoost</span> <span>LightGBM</span> <span>SHAP</span> <span>SAS Viya</span> <span>Tableau</span> <span>Power BI</span> <span>Alteryx</span> <span>Prompt engineering</span></p>
         </aside>
       </div>
     </div>
   </section>
 
   <!-- PERSONAL VALUE PROPOSITION -->
-  <section id="value">
+  <section class="block" id="value">
     <div class="wrap">
-      <h2>Personal Value Proposition</h2>
-      <p class="section-intro">What I bring that is hard to find in one person.</p>
-      <p class="vp-statement">As a data and AI professional with eight years in financial services, I help organizations turn complex, regulated data into explainable AI and machine learning solutions that decision makers can trust and act on.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="num">01</div>
-          <h3>Domain depth</h3>
-          <p>Eight years in data and analytics, including wealth management and fair lending, means I understand the regulations, stakeholders, and stakes behind the data.</p>
-        </div>
-        <div class="pillar">
-          <div class="num">02</div>
-          <h3>Explainable by design</h3>
-          <p>I don't stop at accuracy. I use techniques like SHAP and plain-language scorecards so leaders and compliance teams can understand and trust what a model is doing.</p>
-        </div>
-        <div class="pillar">
-          <div class="num">03</div>
-          <h3>From model to decision</h3>
-          <p>I turn analysis into something people act on: executive dashboards, campaign audiences, and self-service tools that cut turnaround from days to seconds.</p>
-        </div>
-        <div class="pillar">
-          <div class="num">04</div>
-          <h3>Always learning</h3>
-          <p>Through my AI graduate program, I'm adding modern AI engineering, LLMs, and prompt engineering to a strong statistical and analytics foundation.</p>
+      <div class="rail">
+        <h2>Personal value proposition</h2>
+        <p>What I bring that is hard to find in one person.</p>
+      </div>
+      <div>
+        <p class="vp-statement">As a data and AI professional with eight years in financial services, I help organizations turn complex, regulated data into explainable AI and machine learning solutions that decision makers can trust and act on.</p>
+        <div class="strengths">
+          <div style="--c:var(--ink)">
+            <h3>Domain depth</h3>
+            <p>Eight years in data and analytics, including wealth management and fair lending, means I understand the regulations, stakeholders, and stakes behind the data.</p>
+          </div>
+          <div style="--c:var(--saffron)">
+            <h3>Explainable by design</h3>
+            <p>I don't stop at accuracy. I use techniques like SHAP and plain-language scorecards so leaders and compliance teams can understand and trust what a model is doing.</p>
+          </div>
+          <div style="--c:var(--teal)">
+            <h3>From model to decision</h3>
+            <p>I turn analysis into something people act on: executive dashboards, campaign audiences, and self-service tools that cut turnaround from days to seconds.</p>
+          </div>
+          <div style="--c:var(--plum)">
+            <h3>Always learning</h3>
+            <p>Through my AI graduate program, I'm adding modern AI engineering, LLMs, and prompt engineering to a strong statistical and analytics foundation.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ARTIFACTS -->
-  <section id="artifacts">
+  <section class="block" id="artifacts">
     <div class="wrap">
-      <h2>Course Artifacts</h2>
-      <p class="section-intro">Work developed in AIML 500: Machine Learning Fundamentals. Each entry includes the deliverable plus its objective, process, tools, and the value it offers you.</p>
-      <div class="artifact-grid">
-        <!-- To publish an artifact: add <img class="thumb" src="artifacts/assets/artifact-N-thumb.png" alt=""> as the card's first line, update title + summary, change "soon" to "done" and the label to "Completed". -->
-        <a class="card" href="artifacts/artifact-1.html">
-          <img class="thumb" src="artifacts/assets/artifact-1-thumb.png" alt="">
-          <span class="tag">Artifact 1</span>
-          <h3>Fair Lending Metrics Explainer</h3>
-          <p>A tested, rule-based AI chatbot that explains approval-rate disparities in plain language without making legal calls.</p>
-          <span class="status done">Completed</span>
-        </a>
-        <a class="card" href="artifacts/artifact-2.html">
-          <img class="thumb" src="artifacts/assets/artifact-2-thumb.jpg" alt="">
-          <span class="tag">Artifact 2</span>
-          <h3>From Turing to Transformers</h3>
-          <p>An interactive, research-based timeline of 75 years of AI, with a banking lens and both AI winters explained.</p>
-          <span class="status done">Completed</span>
-        </a>
-        <a class="card" href="artifacts/artifact-3.html">
-          <img class="thumb" src="artifacts/assets/artifact-3-thumb.jpg" alt="">
-          <span class="tag">Artifact 3</span>
-          <h3>How a Neural Network Learns</h3>
-          <p>An interactive, no-math explainer where visitors adjust the weights and train a tiny network themselves.</p>
-          <span class="status done">Completed</span>
-        </a>
-        <a class="card" href="artifacts/artifact-4.html">
-          <img class="thumb" src="artifacts/assets/artifact-4-thumb.jpg" alt="">
-          <span class="tag">Artifact 4</span>
-          <h3>The Data Readiness Playbook</h3>
-          <p>An interactive guide to cleaning, scaling, and sharing data responsibly, with a checklist for any AI project.</p>
-          <span class="status done">Completed</span>
-        </a>
-        <a class="card" href="artifacts/artifact-5.html">
-          <span class="tag">Artifact 5</span>
-          <h3>Coming soon</h3>
-          <p>This artifact will be added as it is completed during the course.</p>
-          <span class="status soon">In progress</span>
-        </a>
+      <div class="rail">
+        <h2>Course artifacts</h2>
+        <p>Work developed in AIML 500: Machine Learning Fundamentals. Each one opens on its own page with the deliverable, objective, process, tools, and value.</p>
       </div>
+      <ol class="index">
+        <li style="--c:var(--saffron)"><a class="row" href="artifacts/artifact-1.html">
+          <span class="n">1</span>
+          <img src="artifacts/assets/artifact-1-thumb.png" alt="">
+          <div><h3>Fair Lending Metrics Explainer</h3><p>A tested, rule-based AI chatbot that explains approval-rate disparities in plain language without making legal calls.</p></div>
+          <span class="skill">Build</span>
+        </a></li>
+        <li style="--c:var(--teal)"><a class="row" href="artifacts/artifact-2.html">
+          <span class="n">2</span>
+          <img src="artifacts/assets/artifact-2-thumb.jpg" alt="">
+          <div><h3>From Turing to Transformers</h3><p>An interactive, research-based timeline of 75 years of AI, with a banking lens and both AI winters explained.</p></div>
+          <span class="skill">Research</span>
+        </a></li>
+        <li style="--c:var(--plum)"><a class="row" href="artifacts/artifact-3.html">
+          <span class="n">3</span>
+          <img src="artifacts/assets/artifact-3-thumb.jpg" alt="">
+          <div><h3>How a Neural Network Learns</h3><p>An interactive, no-math explainer where visitors adjust the weights and train a tiny network themselves.</p></div>
+          <span class="skill">Explain</span>
+        </a></li>
+        <li style="--c:var(--accent)"><a class="row" href="artifacts/artifact-4.html">
+          <span class="n">4</span>
+          <img src="artifacts/assets/artifact-4-thumb.jpg" alt="">
+          <div><h3>The Data Readiness Playbook</h3><p>An interactive guide to cleaning, scaling, and sharing data responsibly, with a checklist for any AI project.</p></div>
+          <span class="skill">Govern</span>
+        </a></li>
+        <li style="--c:var(--line)"><div class="row pending">
+          <span class="n">5</span>
+          <span class="ph" aria-hidden="true"></span>
+          <div><h3 style="color:var(--muted)">In progress</h3><p>The fifth artifact will be added in December 2026.</p></div>
+          <span class="skill" style="color:var(--muted)">Coming soon</span>
+        </div></li>
+      </ol>
     </div>
   </section>
 
   <!-- OTHER WORK (outside the program; does not count toward the required artifacts) -->
-  <section id="other">
+  <section class="block" id="other">
     <div class="wrap">
-      <h2>Other Professional Work</h2>
-      <p class="section-intro">Projects completed outside my degree program, shared for additional context.</p>
-      <div class="artifact-grid">
-        <a class="card" href="https://aishshah-arch.github.io/fair-lending-analyzer.html" target="_blank" rel="noopener">
-          <span class="tag">Independent project</span>
+      <div class="rail">
+        <h2>Other professional work</h2>
+        <p>Projects completed outside my degree program, shared for additional context.</p>
+      </div>
+      <div class="other">
+        <a href="https://aishshah-arch.github.io/fair-lending-analyzer.html" target="_blank" rel="noopener">
+          <small>Independent project</small>
           <h3>HMDA Fair Lending Disparity Analyzer</h3>
           <p>A fully browser-based tool that runs four disparity tests on HMDA loan data so compliance officers can assess fair lending risk without code or software installs.</p>
         </a>
-        <a class="card" href="https://public.tableau.com/app/profile/aish.shah" target="_blank" rel="noopener">
-          <span class="tag">Data visualization</span>
-          <h3>Tableau Public Portfolio</h3>
+        <a href="https://public.tableau.com/app/profile/aish.shah" target="_blank" rel="noopener">
+          <small>Data visualization</small>
+          <h3>Tableau Public portfolio</h3>
           <p>Interactive dashboards showcasing executive-facing data storytelling and visual analytics.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section class="contact-band" id="contact">
     <div class="wrap">
-      <h2>Let's Connect</h2>
-      <p class="section-intro">Open to conversations about AI, analytics, and data in financial services.</p>
-      <div class="contact-row">
+      <h2>Let's connect.</h2>
+      <p>Open to conversations about AI, analytics, and data in financial services.</p>
+      <div class="btn-row">
         <a class="btn primary" href="mailto:aish.shah.as@gmail.com">Email me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/aish-shah" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn ghost" href="https://github.com/aishshah-arch" target="_blank" rel="noopener">GitHub</a>
@@ -207,5 +215,44 @@
   <div class="wrap">&copy; 2026 Aishwarya Shah. Portfolio developed for the M.S. in Artificial Intelligence program, Indiana Wesleyan University.</div>
 </footer>
 
+<script>
+// Hero: ~150 scattered points settle into three clusters, once.
+(function(){
+  const box=document.getElementById('clusters'); if(!box) return;
+  const cv=box.querySelector('canvas'), ctx=cv.getContext('2d');
+  const labels=[...box.querySelectorAll('.cl-label')];
+  const cols=['#e9a03c','#39b5ac','#b88be0'];
+  const centers=[[.27,.30],[.73,.40],[.45,.76]];
+  let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+  const gauss=()=>{let u=0,v=0;while(!u)u=rnd();while(!v)v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const pts=[];
+  for(let i=0;i<156;i++){const k=i%3,c=centers[k];
+    pts.push({k,sx:.04+rnd()*.92,sy:.04+rnd()*.92,tx:c[0]+gauss()*.075,ty:c[1]+gauss()*.065,r:2.6+rnd()*2.4,d:rnd()*.35});}
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W=0,H=0,dpr=1;
+  function size(){const r=box.getBoundingClientRect();dpr=window.devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    labels.forEach((l,i)=>{l.style.left=(centers[i][0]*100)+'%';l.style.top=((centers[i][1]-.15)*100)+'%'});}
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  function draw(p){ctx.clearRect(0,0,W,H);
+    // faint grid
+    ctx.strokeStyle='rgba(255,255,255,.05)';ctx.lineWidth=1;
+    for(let x=0;x<=W;x+=W/8){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(let y=0;y<=H;y+=H/8){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+    pts.forEach(q=>{const t=ease(Math.min(1,Math.max(0,(p-q.d)/(1-.35))));
+      const x=(q.sx+(q.tx-q.sx)*t)*W,y=(q.sy+(q.ty-q.sy)*t)*H;
+      ctx.globalAlpha=.55+.45*t;
+      ctx.fillStyle=t<.02?'#8b91b8':cols[q.k];
+      if(t>.02&&t<1){ctx.fillStyle=cols[q.k];ctx.globalAlpha=.35+.65*t}
+      ctx.beginPath();ctx.arc(x,y,q.r,0,7);ctx.fill();});
+    ctx.globalAlpha=1;}
+  size();
+  if(reduce){draw(1);box.classList.add('settled');}
+  else{draw(0);const start=performance.now()+500,dur=2600;
+    function tick(now){const p=Math.min(1,Math.max(0,(now-start)/dur));draw(p);
+      if(p<1)requestAnimationFrame(tick);else box.classList.add('settled');}
+    requestAnimationFrame(tick);}
+  let last=reduce?1:0;window.addEventListener('resize',()=>{size();draw(box.classList.contains('settled')?1:last)});
+})();
+</script>
 </body>
 </html>
